@@ -1,0 +1,32 @@
+name: Release
+
+# Push a tag like v0.1.0 to publish a GitHub release with ZIP files for Claude app users.
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check everything first
+        run: |
+          node scripts/sync-shared.mjs --check
+          node scripts/validate.mjs
+          node --test "tests/**/*.test.mjs"
+      - name: Build ZIPs
+        run: node scripts/build-zips.mjs
+      - name: Create the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/plugins/*.zip dist/skills/*.zip \
+            --title "Power-Up Kit $GITHUB_REF_NAME" \
+            --generate-notes

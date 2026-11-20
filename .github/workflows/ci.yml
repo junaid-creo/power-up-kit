@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Tests (${{ matrix.os }}, Node ${{ matrix.node }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node: [22]
+        include:
+          - os: ubuntu-latest
+            node: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Shared files in sync
+        run: node scripts/sync-shared.mjs --check
+      - name: Unit and end-to-end tests
+        run: node --test "tests/**/*.test.mjs"
+        if: matrix.node >= 22
+      - name: Tests (Node 20 — no built-in glob)
+        run: node --test tests/lib.test.mjs tests/scripts.test.mjs tests/hooks.test.mjs
+        if: matrix.node < 22
+
+  validate:
+    name: Validate plugins
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Claude Code (for the official validator)
+        run: curl -fsSL https://claude.ai/install.sh | bash
+      - name: Validate marketplace, plugins and skills
+        run: CLAUDE_BIN="$HOME/.local/bin/claude" node scripts/validate.mjs
+      - name: Build Claude app ZIPs (smoke test)
+        run: node scripts/build-zips.mjs
