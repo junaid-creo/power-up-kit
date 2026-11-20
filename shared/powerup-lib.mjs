@@ -9,7 +9,7 @@
 
 import { gunzipSync } from 'node:zlib';
 
-export const VERSION = '0.1.0';
+export const VERSION = '0.1.1';
 export const USER_AGENT = `PowerUpKit/${VERSION} (+https://github.com/junaid-creo/power-up-kit)`;
 
 // ---------------------------------------------------------------------------

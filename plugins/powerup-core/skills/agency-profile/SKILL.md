@@ -5,7 +5,7 @@ license: MIT
 compatibility: Works in Claude Code (saves .powerup/agency.md) and the Claude app (gives a file to add to a Claude Project).
 metadata:
   kit: power-up-kit
-  version: 0.1.0
+  version: 0.1.1
 ---
 
 # Agency profile

@@ -17,7 +17,7 @@ First step for anything: ask Claude to **"run the Power-Up Kit doctor"**. It che
 | Problem | Fix |
 |---|---|
 | `node: command not found` or "hook error" notices | Install Node.js 18+ (LTS) from [nodejs.org](https://nodejs.org), then restart Claude Code. |
-| "Power-Up Kit blocked access to a secrets file" | Working as intended — Claude must not read secrets. Edit the file yourself, or set `POWERUP_ALLOW_SECRETS=1` if you really need Claude to. |
+| "Power-Up Kit blocked a command that would read, print or overwrite a secrets file" | Working as intended — Claude must not read secrets. Look at or edit the file yourself, or set `POWERUP_ALLOW_SECRETS=1` if you really need Claude to. If a harmless command was blocked, please [open an issue](https://github.com/junaid-creo/power-up-kit/issues/new?template=bug_report.yml) with the command. |
 | Claude keeps saying it must check its work | That's the proof gate after web edits. Let it run proof-check, or tell it there's nothing to check. Turn off with `POWERUP_PROOF_GATE=off`. |
 | PageSpeed: "quota reached" | Add a free `PAGESPEED_API_KEY` ([connectors.md](connectors.md#google-pagespeed-insights-key-optional-free)). |
 | PageSpeed: "cannot reach local URLs" | Google can only test public URLs. Deploy a preview link, or use a browser tool locally. |

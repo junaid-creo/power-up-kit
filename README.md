@@ -47,10 +47,10 @@ More options (one pack only, teams, updates, older versions): [docs/install.md](
 |---|---|---|
 | 🧠 | **Remembers every client** | Brand colours, fonts, tone of voice, SEO goals and past decisions are saved per client. Every new chat starts knowing them. Switch clients in one sentence. |
 | ⚡ | **Finishes real jobs in one step** | SEO audit with a score and fix list. Brand sheet from any website. A client proposal in your branding. Not tips — finished work. |
-| ✅ | **Checks its own work** | Claude opens the page, takes desktop and mobile screenshots, tests links, SEO, accessibility and speed — and shows the evidence. In Claude Code, a hook stops Claude from finishing after website changes until it has checked them (or told you plainly why it can't). |
+| ✅ | **Checks its own work** | Claude opens the page, takes desktop and mobile screenshots, tests links, SEO, accessibility and speed — and shows the evidence. In Claude Code, after website changes a hook asks Claude once to check them before finishing (or to tell you plainly why it can't). |
 | 🔌 | **Connects to your tools** | Tested setup guides for Figma, Webflow, Framer, WordPress, Shopify, Firecrawl, Search Console, Ahrefs and Semrush, plus a doctor that finds what's missing. |
 
-Plus: **secret protection** (Claude can't read or print `.env` files and private keys) and **no invented numbers** (prices, rankings and traffic only come from you or real data).
+Plus: a **secret-file guard rail** in Claude Code (blocks the common ways of reading, printing or overwriting `.env` files, keys, `wp-config.php` and similar — best effort; [docs/hooks.md](docs/hooks.md#a-hard-guarantee) shows how to make it airtight) and **no invented numbers** (prices, rankings and traffic only come from you or real data).
 
 ---
 
@@ -113,7 +113,7 @@ Install everything with `power-up-kit`, or only the packs you need.
 
 **Scripts do the measuring, Claude does the thinking.** Each skill ships small zero-dependency Node.js scripts (crawler, page checker, brand extractor, proposal checker). They return compact facts, so Claude spends less of your usage reading raw pages and never has to guess a number.
 
-**Hooks (Claude Code only)** load the active client at the start of each session, block access to secret files, and stop Claude claiming web work is done before it has checked it. All can be switched off. [More →](docs/hooks.md)
+**Hooks (Claude Code only)** load the active client at the start of each session, guard against reading secret files (best effort), and ask Claude to check web changes before it says they work. All can be switched off. [More →](docs/hooks.md)
 
 ---
 

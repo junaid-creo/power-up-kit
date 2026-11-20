@@ -12,7 +12,7 @@ Before you install any plugin, you should know what it does. Power-Up Kit:
 - **Reads and writes files** in your project: the `.powerup/` memory folder and reports you ask for.
 - **Makes network requests only when you run a skill:** to the website you asked it to audit (as `PowerUpKit/<version>`, respecting robots.txt), to Google PageSpeed Insights (sending the public URL being tested), and — when you open a generated brand sheet or proposal — Google Fonts.
 - **Sends no telemetry** and has no server of its own.
-- **Adds hooks in Claude Code** that block access to secret files and remind Claude to check web changes. See [docs/hooks.md](docs/hooks.md).
+- **Adds hooks in Claude Code**: a best-effort guard rail against reading secret files, and a reminder to check web changes. The guard rail is not a security boundary — for a hard guarantee use Claude Code's permission deny rules and sandbox, as shown in [docs/hooks.md](docs/hooks.md#a-hard-guarantee).
 
 ## Keeping client data safe
 

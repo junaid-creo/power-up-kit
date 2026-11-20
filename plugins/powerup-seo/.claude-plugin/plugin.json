@@ -2,7 +2,7 @@
   "name": "powerup-seo",
   "displayName": "Power-Up Kit — SEO",
   "description": "Full SEO audits with a crawl, Google PageSpeed, a health score and a prioritised fix list. Uses Search Console, Ahrefs or Semrush when connected.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "junaid-creo",
     "url": "https://github.com/junaid-creo"
