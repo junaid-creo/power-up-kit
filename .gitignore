@@ -1,0 +1,18 @@
+# Build output
+dist/
+
+# Eval run results
+**/evals/results/
+
+# Local Power-Up Kit memory if you test the kit inside this repo
+.powerup/
+
+# Dependencies and OS files
+node_modules/
+.DS_Store
+Thumbs.db
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example

@@ -1,0 +1,33 @@
+{
+  "id": "https://crumb.example/",
+  "loadingExperience": {
+    "id": "https://crumb.example/",
+    "overall_category": "AVERAGE",
+    "metrics": {
+      "LARGEST_CONTENTFUL_PAINT_MS": { "percentile": 3100, "category": "AVERAGE" },
+      "INTERACTION_TO_NEXT_PAINT": { "percentile": 180, "category": "FAST" },
+      "CUMULATIVE_LAYOUT_SHIFT_SCORE": { "percentile": 12, "category": "AVERAGE" },
+      "EXPERIMENTAL_TIME_TO_FIRST_BYTE": { "percentile": 900, "category": "AVERAGE" }
+    }
+  },
+  "lighthouseResult": {
+    "finalDisplayedUrl": "https://crumb.example/",
+    "fetchTime": "2026-11-20T08:00:00.000Z",
+    "categories": {
+      "performance": { "score": 0.62 },
+      "accessibility": { "score": 0.91 },
+      "best-practices": { "score": 1 },
+      "seo": { "score": 0.83 }
+    },
+    "audits": {
+      "first-contentful-paint": { "id": "first-contentful-paint", "numericValue": 1800.4 },
+      "largest-contentful-paint": { "id": "largest-contentful-paint", "numericValue": 4200.7 },
+      "total-blocking-time": { "id": "total-blocking-time", "numericValue": 310 },
+      "cumulative-layout-shift": { "id": "cumulative-layout-shift", "numericValue": 0.08 },
+      "speed-index": { "id": "speed-index", "numericValue": 3900 },
+      "render-blocking-resources": { "id": "render-blocking-resources", "title": "Eliminate render-blocking resources", "score": 0.3, "displayValue": "Potential savings of 900 ms", "details": { "type": "opportunity", "overallSavingsMs": 900 } },
+      "uses-optimized-images": { "id": "uses-optimized-images", "title": "Efficiently encode images", "score": 0.5, "displayValue": "Potential savings of 420 KiB", "details": { "type": "opportunity", "overallSavingsMs": 1350 } },
+      "uses-text-compression": { "id": "uses-text-compression", "title": "Enable text compression", "score": 1, "details": { "type": "opportunity", "overallSavingsMs": 0 } }
+    }
+  }
+}

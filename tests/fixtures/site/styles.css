@@ -1,0 +1,16 @@
+:root {
+  --brand-orange: #c2410c;
+  --ink: #1f2937;
+  --cream: #fffaf0;
+  --font-heading: 'Playfair Display', Georgia, serif;
+}
+@font-face { font-family: 'Crumb Script'; src: url(/fonts/crumb.woff2) format('woff2'); }
+html, body { background: var(--cream); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; }
+h1, h2, .hero-title { font-family: var(--font-heading); color: var(--ink); }
+a { color: var(--brand-orange); }
+.btn-primary { background: #c2410c; color: #fff; border: 1px solid #c2410c; }
+.btn { background-color: #C2410D; color: #ffffff; }
+.badge { background: #0f766e; color: #fff; }
+.footer { background: #1f2937; color: #fffaf0; }
+.quote { font: italic 400 1.25rem/1.4 "Lora", Georgia, serif; }
+@media (max-width: 600px) { .hero-title { font-size: 2rem; color: #1f2937; } }

@@ -1,0 +1,56 @@
+name: Bug report
+description: Something in Power-Up Kit doesn't work as described
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! **Never paste passwords, API keys or client secrets here** — this is a public page.
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where did it happen?
+      options:
+        - Claude Code (terminal)
+        - Claude Code (desktop app)
+        - Claude Code (VS Code / JetBrains)
+        - Claude app (claude.ai / desktop chat)
+        - Cowork
+        - Other AI tool (npx skills)
+    validations:
+      required: true
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Which part?
+      options:
+        - Install / update
+        - client-new / client-switch / client-note
+        - agency-profile
+        - doctor
+        - proof-check
+        - Hooks (secret protection / proof gate)
+        - seo-audit
+        - brand-sheet
+        - proposal
+        - Docs
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: Include the exact message you saw. Remove any client names or private data you don't want public.
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Doctor output (optional)
+      description: In Claude Code, ask Claude to "run the Power-Up Kit doctor" and paste the result here.
+      render: json
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      placeholder: "Claude Code 2.1.326, Node 22.11, macOS 15"

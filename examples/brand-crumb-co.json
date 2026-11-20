@@ -1,0 +1,19 @@
+{
+  "name": "Crumb & Co (demo)",
+  "source": "Website CSS (crumb.example) — not yet confirmed by the client",
+  "date": "2026-11-20",
+  "colors": [
+    { "role": "Primary", "hex": "#c2410c", "use": "Buttons, links, theme colour (--brand-orange)", "confirmed": false },
+    { "role": "Secondary", "hex": "#0f766e", "use": "Badges", "confirmed": false },
+    { "role": "Background", "hex": "#fffaf0", "use": "Page background (--cream)", "confirmed": false },
+    { "role": "Text", "hex": "#1f2937", "use": "Body text, headings (--ink)", "confirmed": false }
+  ],
+  "fonts": { "headings": "Playfair Display", "body": "Inter", "notes": "Both from Google Fonts. A self-hosted 'Crumb Script' font file exists but no page uses it — ask the client." },
+  "logo": { "notes": "Best candidate: /logo.svg in the site header (SVG). Ask the client for light and dark versions." },
+  "voice": {
+    "words": ["warm", "local", "honest"],
+    "do": ["Speak as \"we\" — a small family bakery", "Concrete details: \"baked by hand the same morning\"", "Short, friendly calls to action: \"Order a cake\""],
+    "dont": ["Corporate words like \"solutions\" or \"premium offerings\"", "Hype without proof (\"best in Dubai\")", "Long paragraphs"]
+  },
+  "notes": ["Colours were read from the website and need the client's OK.", "Made with the brand-sheet skill: extract-brand.mjs → this file → render-sheet.mjs."]
+}

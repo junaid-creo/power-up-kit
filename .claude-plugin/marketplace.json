@@ -1,0 +1,81 @@
+{
+  "name": "power-up-kit",
+  "owner": {
+    "name": "junaid-creo",
+    "url": "https://github.com/junaid-creo"
+  },
+  "description": "Power-Up Kit — a web studio team inside Claude for web designers, developers, SEO teams and agencies. Unofficial; not affiliated with Anthropic.",
+  "version": "0.1.0",
+  "plugins": [
+    {
+      "name": "power-up-kit",
+      "source": "./plugins/power-up-kit",
+      "description": "Everything in Power-Up Kit in one install: client memory, proof checks, SEO audits, brand sheets and proposals for web designers, developers, SEO teams and agencies.",
+      "category": "bundle",
+      "tags": [
+        "web-design",
+        "seo",
+        "agency",
+        "webflow",
+        "framer",
+        "wordpress",
+        "shopify",
+        "bundle"
+      ]
+    },
+    {
+      "name": "powerup-core",
+      "source": "./plugins/powerup-core",
+      "description": "Client memory (brand, voice, SEO, decisions), proof checks with screenshots and evidence, setup doctor, and safety hooks that protect secret files.",
+      "category": "productivity",
+      "tags": [
+        "client-memory",
+        "qa",
+        "proof",
+        "accessibility",
+        "safety"
+      ]
+    },
+    {
+      "name": "powerup-seo",
+      "source": "./plugins/powerup-seo",
+      "description": "Full SEO audits with a crawl, Google PageSpeed, a health score and a prioritised fix list. Uses Search Console, Ahrefs or Semrush when connected.",
+      "category": "marketing",
+      "tags": [
+        "seo",
+        "audit",
+        "pagespeed",
+        "core-web-vitals",
+        "search-console",
+        "ahrefs",
+        "semrush"
+      ]
+    },
+    {
+      "name": "powerup-design",
+      "source": "./plugins/powerup-design",
+      "description": "Brand sheets from any website or brief: colours with contrast checks, fonts, logo, tone of voice — saved to the client's memory.",
+      "category": "design",
+      "tags": [
+        "branding",
+        "design",
+        "colors",
+        "typography",
+        "contrast"
+      ]
+    },
+    {
+      "name": "powerup-agency",
+      "source": "./plugins/powerup-agency",
+      "description": "Client proposals with scope, timeline and pricing options in your agency's branding — never with invented prices.",
+      "category": "business",
+      "tags": [
+        "agency",
+        "proposal",
+        "scope-of-work",
+        "pricing",
+        "freelance"
+      ]
+    }
+  ]
+}

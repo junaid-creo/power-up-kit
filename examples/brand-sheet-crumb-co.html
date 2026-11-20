@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crumb &amp; Co (demo) — brand sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;700&display=swap">
+<style>
+  :root { --ink: #16181d; --muted: #5b6270; --line: #e3e5ea; --paper: #ffffff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f4f5f7; color: var(--ink); font: 15px/1.5 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; }
+  main { max-width: 960px; margin: 32px auto; background: var(--paper); padding: 48px; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+  header { display: flex; justify-content: space-between; align-items: center; gap: 24px; border-bottom: 1px solid var(--line); padding-bottom: 24px; }
+  h1 { font: 700 34px/1.15 'Playfair Display', Georgia, serif; margin: 0; }
+  h2 { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 36px 0 14px; }
+  .meta { color: var(--muted); font-size: 13px; margin-top: 6px; }
+  .logo { max-height: 72px; max-width: 220px; object-fit: contain; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .swatch { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .chip { height: 92px; display: flex; align-items: flex-end; padding: 10px; font-weight: 600; font-size: 13px; }
+  .info { padding: 10px 12px; font-size: 13px; }
+  .info b { display: block; font-size: 14px; }
+  .tag { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 99px; background: #fff4e5; color: #8a4b00; margin-top: 4px; }
+  .tag.ok { background: #e7f6ec; color: #136c34; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  td, th { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  .sample { padding: 4px 10px; border-radius: 6px; font-weight: 600; }
+  .fail { color: #b42318; font-weight: 600; }
+  .type-h { font: 700 40px/1.1 'Playfair Display', Georgia, serif; margin: 0 0 8px; }
+  .type-b { font: 16px/1.6 'Inter', system-ui, sans-serif; color: var(--muted); max-width: 60ch; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  ul { padding-left: 18px; margin: 6px 0; }
+  .words span { display: inline-block; border: 1px solid var(--line); border-radius: 99px; padding: 3px 12px; margin: 0 6px 6px 0; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); padding-top: 14px; }
+  @media (max-width: 640px) { main { padding: 24px; margin: 0; border-radius: 0; } .cols { grid-template-columns: 1fr; } header { flex-direction: column; align-items: flex-start; } }
+  @media print { body { background: #fff; } main { box-shadow: none; margin: 0; max-width: none; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>Crumb &amp; Co (demo)</h1>
+      <div class="meta">Brand sheet · 2026-11-20 · Source: Website CSS (crumb.example) — not yet confirmed by the client</div>
+    </div>
+    
+  </header>
+
+  <h2>Colours</h2>
+  <div class="swatches">
+    <div class="swatch"><div class="chip" style="background:#c2410c;color:#ffffff">#C2410C</div><div class="info"><b>Primary</b>Buttons, links, theme colour (--brand-orange)<br><span class="tag">Not confirmed</span></div></div>
+    <div class="swatch"><div class="chip" style="background:#0f766e;color:#ffffff">#0F766E</div><div class="info"><b>Secondary</b>Badges<br><span class="tag">Not confirmed</span></div></div>
+    <div class="swatch"><div class="chip" style="background:#fffaf0;color:#111111">#FFFAF0</div><div class="info"><b>Background</b>Page background (--cream)<br><span class="tag">Not confirmed</span></div></div>
+    <div class="swatch"><div class="chip" style="background:#1f2937;color:#ffffff">#1F2937</div><div class="info"><b>Text</b>Body text, headings (--ink)<br><span class="tag">Not confirmed</span></div></div>
+  </div>
+
+  <h2>Contrast (WCAG 2)</h2>
+  <table>
+    <tr><th>Pair</th><th>Sample</th><th>Ratio</th><th>Rating</th></tr>
+    <tr><td>Primary on Background</td><td><span class="sample" style="color:#c2410c;background:#fffaf0">Aa Sample</span></td><td>4.98:1</td><td class="">AA</td></tr>
+    <tr><td>Secondary on Background</td><td><span class="sample" style="color:#0f766e;background:#fffaf0">Aa Sample</span></td><td>5.26:1</td><td class="">AA</td></tr>
+    <tr><td>Text on Background</td><td><span class="sample" style="color:#1f2937;background:#fffaf0">Aa Sample</span></td><td>14.11:1</td><td class="">AAA</td></tr>
+    <tr><td>White text on Primary</td><td><span class="sample" style="color:#ffffff;background:#c2410c">Aa Sample</span></td><td>5.18:1</td><td class="">AA</td></tr>
+    <tr><td>White text on Secondary</td><td><span class="sample" style="color:#ffffff;background:#0f766e">Aa Sample</span></td><td>5.47:1</td><td class="">AA</td></tr>
+  </table>
+
+  <h2>Typography</h2>
+  <p class="type-h">Playfair Display</p>
+  <p class="type-b">Inter — The quick brown fox jumps over the lazy dog. 0123456789</p>
+  <p class="meta">Both from Google Fonts. A self-hosted &#39;Crumb Script&#39; font file exists but no page uses it — ask the client.</p>
+
+  <h2>Logo</h2><p>Best candidate: /logo.svg in the site header (SVG). Ask the client for light and dark versions.</p>
+
+  <h2>Tone of voice</h2>
+  <div class="words"><span>warm</span><span>local</span><span>honest</span></div>
+  <div class="cols"><div><b>Do</b><ul><li>Speak as &quot;we&quot; — a small family bakery</li><li>Concrete details: &quot;baked by hand the same morning&quot;</li><li>Short, friendly calls to action: &quot;Order a cake&quot;</li></ul></div><div><b>Don't</b><ul><li>Corporate words like &quot;solutions&quot; or &quot;premium offerings&quot;</li><li>Hype without proof (&quot;best in Dubai&quot;)</li><li>Long paragraphs</li></ul></div></div>
+
+  <h2>Notes</h2><ul><li>Colours were read from the website and need the client&#39;s OK.</li><li>Made with the brand-sheet skill: extract-brand.mjs → this file → render-sheet.mjs.</li></ul>
+
+  <footer>Made with Power-Up Kit. Colours marked "Not confirmed" were read from the website and need the client's OK.</footer>
+</main>
+</body>
+</html>

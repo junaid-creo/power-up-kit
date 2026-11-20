@@ -1,0 +1,20 @@
+{
+  "name": "powerup-core",
+  "displayName": "Power-Up Kit — Core",
+  "description": "Client memory (brand, voice, SEO, decisions), proof checks with screenshots and evidence, setup doctor, and safety hooks that protect secret files.",
+  "version": "0.1.0",
+  "author": {
+    "name": "junaid-creo",
+    "url": "https://github.com/junaid-creo"
+  },
+  "homepage": "https://github.com/junaid-creo/power-up-kit",
+  "repository": "https://github.com/junaid-creo/power-up-kit",
+  "license": "MIT",
+  "keywords": [
+    "client-memory",
+    "qa",
+    "proof",
+    "accessibility",
+    "safety"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "power-up-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A web studio team inside Claude: client memory, proof checks, SEO audits, brand sheets and proposals for web designers, developers, SEO teams and agencies.",
+  "type": "module",
+  "license": "MIT",
+  "repository": "github:junaid-creo/power-up-kit",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test \"tests/**/*.test.mjs\"",
+    "validate": "node scripts/validate.mjs",
+    "sync": "node scripts/sync-shared.mjs",
+    "build": "node scripts/build-zips.mjs",
+    "icons": "node scripts/make-icons.mjs",
+    "check": "node scripts/sync-shared.mjs --check && node scripts/validate.mjs && node --test \"tests/**/*.test.mjs\""
+  }
+}
