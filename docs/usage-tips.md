@@ -4,7 +4,7 @@ Hitting usage limits is the most common complaint from Claude users. Power-Up Ki
 
 ## What the kit costs you
 
-- **Always loaded:** only the short descriptions of the 9 skills — about **800 tokens** in total — so Claude knows when to use them.
+- **Always loaded:** only the short descriptions of the 9 skills, so Claude knows when to use them — **under 1,000 tokens** in total. Claude Code's own estimate (`claude plugin details`): about 550 for powerup-core and about 120 for each of the other packs. Hooks add nothing here.
 - **Loaded when used:** a skill's full instructions (roughly 450–1,200 tokens each), and its reference files only if needed.
 - **Hooks:** the session-start message is one or two lines, and only in projects with a `.powerup/` folder. The other hooks add nothing to the conversation unless they block something.
 
