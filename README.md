@@ -111,12 +111,8 @@ Install the bundle for your role (`power-up-designers`, `power-up-developers`, `
 |---|---|---|
 | **powerup-core** (always installed) | `client-new` · `client-switch` · `client-note` · `agency-profile` · `doctor` · `proof-check` + safety hooks | Everyone |
 | **powerup-seo** | `seo-audit` · `content-brief` · `meta-schema` · `redirect-map` · `seo-report` | SEO teams, agencies, developers |
-| **powerup-design** | `content-brief` | Studies the pages that rank for a keyword and writes a brief: intent, outline, length, questions, internal links, angle | ✅ | ✅* |
-| `meta-schema` | Titles, meta descriptions, Open Graph and JSON-LD — written, checked (length, pixel width, required schema fields) and ready to paste | ✅ | ✅* |
-| `redirect-map` | Old → new URL matching for migrations, checks for chains and loops, exports for 10 platforms, verifies after launch | ✅ | ✅* |
-| `seo-report` | Monthly client report: Search Console and health-score changes, fixed and new issues, work done, next steps — branded HTML | ✅ | ✅ |
-| `brand-sheet` | Designers |
-| **powerup-agency** | `proposal` · `launch` | Agency owners, freelancers, project managers |
+| **powerup-design** | `brand-sheet` | Designers, agencies |
+| **powerup-agency** | `proposal` · `launch` | Agencies, freelancers, designers and developers who launch sites |
 
 | Skill | What it does | Claude Code | Claude app |
 |---|---|:-:|:-:|
@@ -127,6 +123,10 @@ Install the bundle for your role (`power-up-designers`, `power-up-developers`, `
 | `doctor` | Checks Node, Claude Code, connectors, memory and secrets — gives exact fixes | ✅ | ✅ (connectors only) |
 | `proof-check` | Evidence-based QA of a page: status, links, SEO, accessibility, speed, screenshots | ✅ | ✅ |
 | `seo-audit` | Polite crawl, 30 site and page checks, PageSpeed, score /100, prioritised report; uses Search Console / Ahrefs / Semrush if connected | ✅ | ✅* |
+| `content-brief` | Studies the pages that rank for a keyword and writes a brief: intent, outline, length, questions, internal links, angle | ✅ | ✅* |
+| `meta-schema` | Titles, meta descriptions, Open Graph and JSON-LD — written, checked (length, pixel width, required schema fields) and ready to paste | ✅ | ✅* |
+| `redirect-map` | Old → new URL matching for migrations, checks for chains and loops, exports for 10 platforms, verifies after launch | ✅ | ✅* |
+| `seo-report` | Monthly client report: Search Console and health-score changes, fixed and new issues, work done, next steps — branded HTML | ✅ | ✅ |
 | `brand-sheet` | Brand colours (with roles and WCAG contrast), fonts, logo and voice → printable sheet | ✅ | ✅* |
 | `proposal` | Proposal with 3 options in your branding; checks totals, gaps and expiry; never invents prices | ✅ | ✅ |
 | `launch` | Go-live pipeline: pre-launch checks on staging, go / no-go, client sign-off, then post-launch checks on the live site | ✅ | ✅* |
