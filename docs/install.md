@@ -8,9 +8,9 @@ Paste this into Claude:
 Install the Power-Up Kit from https://github.com/junaid-creo/power-up-kit
 ```
 
-Claude asks who you are, then installs the right packs (Claude Code) or tells you the two clicks to make (Claude app).
+Claude asks who you are. In Claude Code it then installs the right packs itself; in the Claude app it walks you through the [5 steps](#claude-app-claudeai-desktop-chat-cowork) (Claude can't install plugins there).
 
-| You are | Bundle (Claude Code) | Packs it installs — turn these on in the Claude app |
+| You are | Bundle (Claude Code) | Packs it installs — add these yourself in the Claude app |
 |---|---|---|
 | Web designer / designer | `power-up-designers` | powerup-core, powerup-design, powerup-agency |
 | Developer | `power-up-developers` | powerup-core, powerup-seo, powerup-agency |
@@ -20,7 +20,7 @@ Claude asks who you are, then installs the right packs (Claude Code) or tells yo
 | You use | Fastest way |
 |---|---|
 | Claude Code (terminal, desktop app, VS Code, JetBrains) | Ask Claude, or `claude plugin install <bundle> --marketplace junaid-creo/power-up-kit` |
-| Claude app (claude.ai, desktop chat, Cowork) | Customize → Plugins → Add → Add marketplace → `junaid-creo/power-up-kit`, then turn on your packs |
+| Claude app (claude.ai, desktop chat, Cowork) | [5 steps, once](#claude-app-claudeai-desktop-chat-cowork): Customize → Plugins → Add → Add marketplace → `junaid-creo/power-up-kit`, then Discover → add your packs |
 | Cursor, Codex and other tools | `npx skills add junaid-creo/power-up-kit` |
 
 ## Claude Code
@@ -89,11 +89,17 @@ claude plugin prune
 
 ## Claude app (claude.ai, desktop chat, Cowork)
 
-1. **Settings → Capabilities →** turn on **Code execution and file creation** (skills need it).
-2. **Customize → Plugins → Add marketplace**, paste `junaid-creo/power-up-kit`.
-3. Turn on **powerup-core** and the packs you want. If you turn on a pack, turn on **powerup-core** too.
+Needs a Pro, Max, Team or Enterprise plan. Claude can't install plugins for you in the app, so do this once yourself:
 
-No marketplace access? Download ZIPs from [Releases](https://github.com/junaid-creo/power-up-kit/releases):
+1. Open [claude.ai](https://claude.ai) or the Claude desktop app and sign in.
+2. In the left sidebar: **Customize** → **Plugins**.
+3. **Add** → **Add marketplace** → paste `junaid-creo/power-up-kit` → confirm.
+4. **Discover** → open each pack for your role and click **Add** (table at the top of this page). Always add **powerup-core**. Skip the `power-up-…` bundles — they're for Claude Code.
+5. Start a new chat and say **"Run the Power-Up Kit doctor."**
+
+Step-by-step with fixes for company accounts, updates and removing: [Claude app guide](claude-app.md#install-once-about-2-minutes).
+
+**Your company blocks adding marketplaces?** Ask your Claude admin, or upload ZIPs from [Releases](https://github.com/junaid-creo/power-up-kit/releases) instead (uploaded packs don't update by themselves):
 - a whole pack: **Customize → Plugins → Add → Upload plugin** with `powerup-seo.zip` (etc.);
 - a single skill: **Customize → Skills → + → Upload a skill** with `seo-audit.zip` (etc.).
 

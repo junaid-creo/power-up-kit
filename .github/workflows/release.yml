@@ -33,9 +33,9 @@ jobs:
 
           ### Install
 
-          **Claude Code:** \`claude plugin install power-up-kit --marketplace $GITHUB_REPOSITORY\`
+          **Claude Code:** ask Claude to "install the Power-Up Kit from https://github.com/$GITHUB_REPOSITORY" — it asks your role and installs it. Or run \`claude plugin install power-up-kit --marketplace $GITHUB_REPOSITORY\` (role bundles: \`power-up-designers\`, \`power-up-developers\`, \`power-up-seo-team\`).
 
-          **Claude app:** Customize → Plugins → Add marketplace → \`$GITHUB_REPOSITORY\`, or upload the ZIPs below (a whole pack under Plugins, a single skill under Skills).
+          **Claude app (claude.ai, desktop chat):** left sidebar **Customize** → **Plugins** → **Add** → **Add marketplace** → paste \`$GITHUB_REPOSITORY\` → **Discover** → **Add** \`powerup-core\` and the packs for your role. [Step by step](https://github.com/$GITHUB_REPOSITORY/blob/$GITHUB_REF_NAME/docs/claude-app.md#install-once-about-2-minutes). Can't add marketplaces? Upload the pack ZIPs below under **Customize → Plugins → Add → Upload plugin**.
 
           Already installed? Run \`/plugin\` → Marketplaces → power-up-kit → Update, then restart Claude Code.
           EOF

@@ -12,6 +12,13 @@ claude plugin install power-up-designers --marketplace junaid-creo/power-up-kit
 
 Then type `/reload-plugins` (or restart Claude Code) and ask Claude to "run the Power-Up Kit doctor".
 
-**Claude app:** Customize → Plugins → Add → Add marketplace → `junaid-creo/power-up-kit`, then turn on powerup-core, powerup-design, powerup-agency.
+**Claude app (claude.ai, desktop chat):** this bundle adds nothing there — add the packs instead (Pro, Max, Team or Enterprise plan):
+
+1. Left sidebar: **Customize** → **Plugins**.
+2. **Add** → **Add marketplace** → paste `junaid-creo/power-up-kit` → confirm.
+3. **Discover** → open each pack and click **Add**: `powerup-core`, `powerup-design`, `powerup-agency`.
+4. Start a new chat and say "Run the Power-Up Kit doctor".
+
+[Step by step, with help for company accounts](https://github.com/junaid-creo/power-up-kit/blob/main/docs/claude-app.md#install-once-about-2-minutes)
 
 Full documentation: https://github.com/junaid-creo/power-up-kit

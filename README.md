@@ -19,27 +19,56 @@
 
 ---
 
-## Install — just ask Claude
+## Install
 
-Paste this into Claude:
+**Which Claude do you use?**
+
+| If you use Claude in… | You have | Install |
+|---|---|---|
+| A web browser at claude.ai, or the chat in the Claude desktop app | **The Claude app** | [5 steps, once](#claude-app-5-steps-once) |
+| The terminal, the **Code** tab of the desktop app, VS Code or JetBrains | **Claude Code** | [Just ask Claude](#claude-code-just-ask-claude) |
+
+Not sure? You're most likely using the Claude app.
+
+### Claude app: 5 steps, once
+
+Claude isn't allowed to install plugins for you in the app, so you do this yourself — it takes about 2 minutes. Plugins need a **Pro, Max, Team or Enterprise** plan.
+
+1. **Open Claude** — [claude.ai](https://claude.ai) or the desktop app — and sign in.
+2. In the **left sidebar**, click **Customize**, then **Plugins**.
+3. Click **Add** → **Add marketplace**, paste `junaid-creo/power-up-kit` and confirm.
+4. Click **Discover**. Open each pack for your role and click **Add**:
+
+   | You are | Add these packs | You get |
+   |---|---|---|
+   | **Web designer / designer** | `powerup-core` · `powerup-design` · `powerup-agency` | Client memory, proof checks with screenshots, brand sheets, proposals, launch checks |
+   | **Developer** | `powerup-core` · `powerup-seo` · `powerup-agency` | Proof checks, titles and schema, redirect maps, SEO audits, launch checks |
+   | **SEO team** | `powerup-core` · `powerup-seo` | SEO audits, content briefs, meta and schema, redirect maps, monthly reports |
+   | **Agency** or **all** | all four `powerup-…` packs | Everything |
+
+   Always add **`powerup-core`** — the other packs need it. Skip the `power-up-…` bundles in the list; they're shortcuts for Claude Code.
+5. **Start a new chat** and say: **"Run the Power-Up Kit doctor."** It checks your setup and tells you what to fix.
+
+Stuck, or on a company account? See the [Claude app guide](docs/claude-app.md#if-something-doesnt-look-right).
+
+### Claude Code: just ask Claude
+
+Paste this into Claude Code:
 
 ```text
 Install the Power-Up Kit from https://github.com/junaid-creo/power-up-kit
 ```
 
-Claude asks **one question — who you are** — and installs the right packs:
+Claude asks **one question — who you are** — and installs the right packs with one command:
 
-| You are | You get | Claude Code installs |
-|---|---|---|
-| **Web designer / designer** | Client memory, proof checks with screenshots, brand sheets, proposals, launch checks | `power-up-designers` |
-| **Developer** | Proof checks, titles and schema, redirect maps, SEO audits, launch checks | `power-up-developers` |
-| **SEO team** | SEO audits, content briefs, meta and schema, redirect maps, monthly reports | `power-up-seo-team` |
-| **Agency** or **All** | Everything | `power-up-kit` |
+| You are | Claude installs |
+|---|---|
+| **Web designer / designer** | `power-up-designers` (core, design, agency packs) |
+| **Developer** | `power-up-developers` (core, SEO, agency packs) |
+| **SEO team** | `power-up-seo-team` (core, SEO packs) |
+| **Agency** or **all** | `power-up-kit` (everything) |
 
-- **In Claude Code** (terminal, desktop app, VS Code, JetBrains), Claude runs the install for you. Approve the one command, then type `/reload-plugins`.
-- **In the Claude app** (claude.ai, desktop chat, Cowork), Claude can't add plugins for you — that's a Claude rule. It gives you two clicks instead: **Customize → Plugins → Add → Add marketplace** → `junaid-creo/power-up-kit`, then turn on the packs for your role.
-
-Then ask Claude: **"Run the Power-Up Kit doctor."** It checks your setup and tells you exactly what to fix.
+Approve the command when Claude asks, then type `/reload-plugins` and say **"Run the Power-Up Kit doctor."**
 
 <details>
 <summary><b>Install it yourself</b> (one command)</summary>
@@ -63,7 +92,14 @@ When someone asks you to install Power-Up Kit from this repository:
    - Windows PowerShell: `& $(if ($env:CLAUDE_CODE_EXECPATH) { $env:CLAUDE_CODE_EXECPATH } else { 'claude' }) plugin install <bundle> --marketplace junaid-creo/power-up-kit`
    - If it says `unknown option '--marketplace'` (Claude Code older than 2.1.292), run `plugin marketplace add junaid-creo/power-up-kit` and then `plugin install <bundle>@power-up-kit` with the same program.
    - Then tell the user to type `/reload-plugins` (you can't run it yourself) and to say "Run the Power-Up Kit doctor". That's all — no other steps.
-4. **In the Claude app** (no Claude Code program to run), you can't install plugins. Don't build ZIP files. Give exactly two steps: **Customize → Plugins → Add → Add marketplace** → `junaid-creo/power-up-kit`; then turn on — designer: `powerup-core`, `powerup-design`, `powerup-agency` · developer: `powerup-core`, `powerup-seo`, `powerup-agency` · SEO team: `powerup-core`, `powerup-seo` · agency or all: all four. If skills can't run scripts, add: **Settings → Capabilities → Code execution and file creation** on.
+4. **In the Claude app** (no Claude Code program to run), you can't install plugins. Don't build ZIP files. Ask the same one question, then give the user these steps with *their* packs filled in:
+   1. Plugins need a Pro, Max, Team or Enterprise plan.
+   2. In the left sidebar: **Customize** → **Plugins**.
+   3. **Add** → **Add marketplace** → paste `junaid-creo/power-up-kit` → confirm.
+   4. **Discover** → open each pack and click **Add**: designer `powerup-core`, `powerup-design`, `powerup-agency` · developer `powerup-core`, `powerup-seo`, `powerup-agency` · SEO team `powerup-core`, `powerup-seo` · agency or all: all four. Always include `powerup-core`; skip the `power-up-…` bundles.
+   5. Start a new chat and say "Run the Power-Up Kit doctor".
+
+   If they get stuck (no Add marketplace, a company account, scripts can't run), send them to [docs/claude-app.md](docs/claude-app.md#if-something-doesnt-look-right).
 
 ---
 

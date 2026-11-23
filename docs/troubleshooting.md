@@ -28,7 +28,8 @@ First step for anything: ask Claude to **"run the Power-Up Kit doctor"**. It che
 
 | Problem | Fix |
 |---|---|
-| Claude says it can't install plugins, or makes ZIP files | In the Claude app, Claude isn't allowed to add plugins for you. Skip the ZIPs: **Customize → Plugins → Add → Add marketplace** → `junaid-creo/power-up-kit`, then turn on the packs for your role ([install.md](install.md)). |
+| Claude says it can't install plugins, or makes ZIP files | Normal in the Claude app — Claude isn't allowed to add plugins there. Skip the ZIPs and follow the [5 steps](claude-app.md#install-once-about-2-minutes): **Customize → Plugins → Add → Add marketplace** → `junaid-creo/power-up-kit`, then **Discover** → **Add** your packs. |
+| No **Customize**, **Plugins** or **Add marketplace** | Plugins need a Pro, Max, Team or Enterprise plan. On a company account, your Claude admin may have turned off members' own plugins — see the [Claude app guide](claude-app.md#if-something-doesnt-look-right). |
 | Skills don't run scripts | Turn on **Settings → Capabilities → Code execution and file creation**. |
 | "Network error" in an audit | The app's sandbox often can't reach websites. The skill falls back to Claude's web tools and audits a sample. For full crawls, use Claude Code. |
 | Claude forgot the client | Chat inside the client's **Project**, and make sure the latest `.md` files are added to it. |
