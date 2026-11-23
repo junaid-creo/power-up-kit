@@ -19,25 +19,51 @@
 
 ---
 
-## Install
+## Install — just ask Claude
 
-**Claude Code** — one command (Claude Code 2.1.292 or newer):
+Paste this into Claude:
 
-```bash
-claude plugin install power-up-kit --marketplace junaid-creo/power-up-kit
+```text
+Install the Power-Up Kit from https://github.com/junaid-creo/power-up-kit
 ```
 
-**Claude app** (claude.ai or desktop) — **Customize → Plugins → Add marketplace**, paste `junaid-creo/power-up-kit`, and turn on the packs you want. Or download ZIPs from [Releases](https://github.com/junaid-creo/power-up-kit/releases).
+Claude asks **one question — who you are** — and installs the right packs:
 
-**Other AI tools** (Cursor, Codex and more — skills only):
+| You are | You get | Claude Code installs |
+|---|---|---|
+| **Web designer / designer** | Client memory, proof checks with screenshots, brand sheets, proposals, launch checks | `power-up-designers` |
+| **Developer** | Proof checks, titles and schema, redirect maps, SEO audits, launch checks | `power-up-developers` |
+| **SEO team** | SEO audits, content briefs, meta and schema, redirect maps, monthly reports | `power-up-seo-team` |
+| **Agency** or **All** | Everything | `power-up-kit` |
 
-```bash
-npx skills add junaid-creo/power-up-kit
-```
+- **In Claude Code** (terminal, desktop app, VS Code, JetBrains), Claude runs the install for you. Approve the one command, then type `/reload-plugins`.
+- **In the Claude app** (claude.ai, desktop chat, Cowork), Claude can't add plugins for you — that's a Claude rule. It gives you two clicks instead: **Customize → Plugins → Add → Add marketplace** → `junaid-creo/power-up-kit`, then turn on the packs for your role.
 
 Then ask Claude: **"Run the Power-Up Kit doctor."** It checks your setup and tells you exactly what to fix.
 
-More options (one pack only, teams, updates, older versions): [docs/install.md](docs/install.md).
+<details>
+<summary><b>Install it yourself</b> (one command)</summary>
+
+```bash
+claude plugin install power-up-designers --marketplace junaid-creo/power-up-kit
+```
+
+Swap in `power-up-developers`, `power-up-seo-team` or `power-up-kit` (everything). Needs Claude Code 2.1.292+. Other AI tools (Cursor, Codex — skills only): `npx skills add junaid-creo/power-up-kit`. More options: [docs/install.md](docs/install.md).
+
+</details>
+
+### Instructions for Claude
+
+When someone asks you to install Power-Up Kit from this repository:
+
+1. **Ask one question** (with your question tool if you have one): *"Which describes you best?"* — Web designer / designer · Developer · SEO team · Agency · All. Don't ask anything else.
+2. **Pick the bundle:** designer → `power-up-designers` · developer → `power-up-developers` · SEO team → `power-up-seo-team` · agency or all → `power-up-kit`.
+3. **In Claude Code**, run this one command yourself (user scope, works in every project). `CLAUDE_CODE_EXECPATH` is the Claude Code program running this session — use it, because the desktop app doesn't put `claude` on the PATH:
+   - macOS / Linux: `"${CLAUDE_CODE_EXECPATH:-claude}" plugin install <bundle> --marketplace junaid-creo/power-up-kit`
+   - Windows PowerShell: `& $(if ($env:CLAUDE_CODE_EXECPATH) { $env:CLAUDE_CODE_EXECPATH } else { 'claude' }) plugin install <bundle> --marketplace junaid-creo/power-up-kit`
+   - If it says `unknown option '--marketplace'` (Claude Code older than 2.1.292), run `plugin marketplace add junaid-creo/power-up-kit` and then `plugin install <bundle>@power-up-kit` with the same program.
+   - Then tell the user to type `/reload-plugins` (you can't run it yourself) and to say "Run the Power-Up Kit doctor". That's all — no other steps.
+4. **In the Claude app** (no Claude Code program to run), you can't install plugins. Don't build ZIP files. Give exactly two steps: **Customize → Plugins → Add → Add marketplace** → `junaid-creo/power-up-kit`; then turn on — designer: `powerup-core`, `powerup-design`, `powerup-agency` · developer: `powerup-core`, `powerup-seo`, `powerup-agency` · SEO team: `powerup-core`, `powerup-seo` · agency or all: all four. If skills can't run scripts, add: **Settings → Capabilities → Code execution and file creation** on.
 
 ---
 
@@ -79,7 +105,7 @@ See a [real audit of a live website](examples/real-audit-junaid-aj.md), a [real 
 
 ## What's inside
 
-Install everything with `power-up-kit`, or only the packs you need.
+Install the bundle for your role (`power-up-designers`, `power-up-developers`, `power-up-seo-team`), everything with `power-up-kit`, or single packs.
 
 | Pack | Skills | For |
 |---|---|---|

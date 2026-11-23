@@ -2,7 +2,7 @@
   "name": "powerup-core",
   "displayName": "Power-Up Kit — Core",
   "description": "Client memory (brand, voice, SEO, decisions), proof checks with screenshots and evidence, setup doctor, and safety hooks that protect secret files.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "junaid-creo",
     "url": "https://github.com/junaid-creo"

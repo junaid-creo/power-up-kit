@@ -6,7 +6,7 @@ compatibility: Works in Claude Code and the Claude app. Scripts need Node.js 18+
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/meta-schema.mjs" *)
 metadata:
   kit: power-up-kit
-  version: 0.2.0
+  version: 0.2.1
 ---
 
 # Meta and schema

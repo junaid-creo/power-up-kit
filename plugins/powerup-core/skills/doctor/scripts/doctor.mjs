@@ -10,7 +10,7 @@ import { spawnSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
-const KIT_VERSION = '0.2.0';
+const KIT_VERSION = '0.2.1';
 const ONE_COMMAND_INSTALL_MIN = [2, 1, 292];
 
 const argv = process.argv.slice(2);

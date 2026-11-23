@@ -2,7 +2,7 @@
   "name": "powerup-agency",
   "displayName": "Power-Up Kit — Agency",
   "description": "Client proposals with real pricing in your branding, and a launch pipeline that catches go-live disasters (noindex, staging URLs, missing redirects, no analytics) and gets client sign-off.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "junaid-creo",
     "url": "https://github.com/junaid-creo"

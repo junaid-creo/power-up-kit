@@ -6,7 +6,7 @@ compatibility: Works in Claude Code and the Claude app. The script needs Node.js
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/redirect-map.mjs" *)
 metadata:
   kit: power-up-kit
-  version: 0.2.0
+  version: 0.2.1
 ---
 
 # Redirect map

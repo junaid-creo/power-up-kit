@@ -5,7 +5,7 @@ license: MIT
 compatibility: Works in Claude Code (reads .powerup/ in the project). In the Claude app, each client lives in its own Claude Project instead.
 metadata:
   kit: power-up-kit
-  version: 0.2.0
+  version: 0.2.1
 ---
 
 # Switch client

@@ -17,6 +17,9 @@ const ICONS = {
   'powerup-seo': ['#34d399', '#047857'],
   'powerup-design': ['#c084fc', '#7e22ce'],
   'powerup-agency': ['#60a5fa', '#1d4ed8'],
+  'power-up-designers': ['#f472b6', '#7e22ce'],
+  'power-up-developers': ['#38bdf8', '#1d4ed8'],
+  'power-up-seo-team': ['#4ade80', '#047857'],
 };
 
 const BOLT = [[300, 52], [128, 300], [244, 300], [204, 460], [384, 196], [264, 196], [300, 52]];

@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.1 — 2026-11-23
+
+Installing is now one question: paste the repository link into Claude, say who you are, done.
+
+### Added
+- **Role bundles:** `power-up-designers` (core, design, agency), `power-up-developers` (core, SEO, agency) and `power-up-seo-team` (core, SEO), next to `power-up-kit` for agencies and everything. Each installs its packs with one command in Claude Code.
+- **"Install — just ask Claude"** in the README: Claude asks one question (designer, developer, SEO team, agency, all) and runs the install itself in Claude Code. In the Claude app, where Claude can't add plugins, it gives the two clicks instead of making ZIP files.
+
+### Changed
+- Release ZIPs leave out the bundles. An uploaded ZIP doesn't install dependencies in the Claude app, so a bundle ZIP installed nothing.
+- Install guide, Claude app guide and troubleshooting start with the role table.
+
 ## 0.2.0 — 2026-11-23
 
 Five new skills: the SEO pack grows from one skill to five, and the agency pack gets a launch pipeline.

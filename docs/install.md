@@ -1,22 +1,39 @@
 # Install Power-Up Kit
 
+## The easy way: ask Claude
+
+Paste this into Claude:
+
+```text
+Install the Power-Up Kit from https://github.com/junaid-creo/power-up-kit
+```
+
+Claude asks who you are, then installs the right packs (Claude Code) or tells you the two clicks to make (Claude app).
+
+| You are | Bundle (Claude Code) | Packs it installs — turn these on in the Claude app |
+|---|---|---|
+| Web designer / designer | `power-up-designers` | powerup-core, powerup-design, powerup-agency |
+| Developer | `power-up-developers` | powerup-core, powerup-seo, powerup-agency |
+| SEO team | `power-up-seo-team` | powerup-core, powerup-seo |
+| Agency / All | `power-up-kit` | all four |
+
 | You use | Fastest way |
 |---|---|
-| Claude Code (terminal, desktop app, VS Code, JetBrains) | `claude plugin install power-up-kit --marketplace junaid-creo/power-up-kit` |
-| Claude app (claude.ai, desktop chat, Cowork) | Customize → Plugins → Add marketplace → `junaid-creo/power-up-kit` |
+| Claude Code (terminal, desktop app, VS Code, JetBrains) | Ask Claude, or `claude plugin install <bundle> --marketplace junaid-creo/power-up-kit` |
+| Claude app (claude.ai, desktop chat, Cowork) | Customize → Plugins → Add → Add marketplace → `junaid-creo/power-up-kit`, then turn on your packs |
 | Cursor, Codex and other tools | `npx skills add junaid-creo/power-up-kit` |
 
 ## Claude Code
 
-### Everything, one command
+### One command for your role
 
 ```bash
-claude plugin install power-up-kit --marketplace junaid-creo/power-up-kit
+claude plugin install power-up-seo-team --marketplace junaid-creo/power-up-kit
 ```
 
-Needs Claude Code **2.1.292+** (check with `claude --version`, upgrade with `claude update`). Inside a Claude Code chat, the same works as `/plugin install power-up-kit --marketplace junaid-creo/power-up-kit` (2.1.275+).
+Use the bundle for your role from the table above (`power-up-kit` = everything). Needs Claude Code **2.1.292+** (check with `claude --version`, upgrade with `claude update`). Inside a Claude Code chat, the same works as `/plugin install power-up-seo-team --marketplace junaid-creo/power-up-kit` (2.1.275+). After installing from the terminal while a chat is open, type `/reload-plugins` in it.
 
-`power-up-kit` is a bundle: it installs **powerup-core**, **powerup-seo**, **powerup-design** and **powerup-agency** as dependencies.
+The bundles have no skills of their own. They list the packs as dependencies, and Claude Code installs them for you. You can add more packs later — installing `power-up-kit` gives you everything.
 
 ### Only some packs
 

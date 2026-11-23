@@ -6,7 +6,7 @@ compatibility: Works in Claude Code and the Claude app. The setup script needs N
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/doctor.mjs" *), Bash(node "${CLAUDE_SKILL_DIR}/scripts/doctor.mjs")
 metadata:
   kit: power-up-kit
-  version: 0.2.0
+  version: 0.2.1
 ---
 
 # Doctor

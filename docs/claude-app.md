@@ -5,7 +5,7 @@ For designers, SEO specialists and account managers who use Claude at claude.ai 
 ## Set up (once)
 
 1. **Settings → Capabilities →** turn on **Code execution and file creation**.
-2. Install the packs: **Customize → Plugins → Add marketplace** → `junaid-creo/power-up-kit` (details in [install.md](install.md)).
+2. Install the packs: **Customize → Plugins → Add → Add marketplace** → `junaid-creo/power-up-kit`, then turn on the packs for your role — designer: powerup-core, powerup-design, powerup-agency · developer: powerup-core, powerup-seo, powerup-agency · SEO team: powerup-core, powerup-seo · agency: all four. Not sure? Paste the repo link into Claude and ask it to install the kit — it asks who you are and tells you which to turn on. You don't need the ZIP files. ([install.md](install.md))
 3. Optional but useful: connect Firecrawl, Figma, Webflow, Ahrefs or Semrush under **Customize → Connectors** ([connectors.md](connectors.md)).
 
 ## Client memory with Claude Projects

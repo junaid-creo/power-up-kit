@@ -1,0 +1,25 @@
+{
+  "name": "power-up-seo-team",
+  "displayName": "Power-Up Kit — for SEO teams",
+  "description": "For SEO teams: SEO audits, content briefs, meta and schema, redirect maps and monthly client reports. Installs powerup-core, powerup-seo in one step in Claude Code. In the Claude app, turn on those packs instead.",
+  "version": "0.2.1",
+  "author": {
+    "name": "junaid-creo",
+    "url": "https://github.com/junaid-creo"
+  },
+  "homepage": "https://github.com/junaid-creo/power-up-kit",
+  "repository": "https://github.com/junaid-creo/power-up-kit",
+  "license": "MIT",
+  "keywords": [
+    "seo",
+    "seo-team",
+    "audit",
+    "content-brief",
+    "search-console",
+    "bundle"
+  ],
+  "dependencies": [
+    "powerup-core",
+    "powerup-seo"
+  ]
+}

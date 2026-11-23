@@ -37,9 +37,11 @@ const pluginsDir = join(root, 'plugins');
 for (const plugin of readdirSync(pluginsDir)) {
   const dir = join(pluginsDir, plugin);
   if (!statSync(dir).isDirectory()) continue;
-  zip(pluginsDir, plugin, join(dist, 'plugins', `${plugin}.zip`));
   const skillsDir = join(dir, 'skills');
+  // Bundles (power-up-kit, power-up-designers …) have no skills, only dependencies. An uploaded
+  // ZIP doesn't install dependencies in the Claude app, so a bundle ZIP would install nothing.
   if (!existsSync(skillsDir)) continue;
+  zip(pluginsDir, plugin, join(dist, 'plugins', `${plugin}.zip`));
   for (const skill of readdirSync(skillsDir)) {
     if (!statSync(join(skillsDir, skill)).isDirectory()) continue;
     zip(skillsDir, skill, join(dist, 'skills', `${skill}.zip`));

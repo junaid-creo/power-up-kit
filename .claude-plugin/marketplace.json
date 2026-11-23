@@ -5,7 +5,7 @@
     "url": "https://github.com/junaid-creo"
   },
   "description": "Power-Up Kit — a web studio team inside Claude for web designers, developers, SEO teams and agencies. Unofficial; not affiliated with Anthropic.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "plugins": [
     {
       "name": "power-up-kit",
@@ -20,6 +20,48 @@
         "framer",
         "wordpress",
         "shopify",
+        "bundle"
+      ]
+    },
+    {
+      "name": "power-up-designers",
+      "source": "./plugins/power-up-designers",
+      "description": "For web designers and designers: client memory, proof checks with screenshots, brand sheets, proposals and launch checks. Installs powerup-core, powerup-design, powerup-agency in one step in Claude Code. In the Claude app, turn on those packs instead.",
+      "category": "bundle",
+      "tags": [
+        "web-design",
+        "designers",
+        "branding",
+        "webflow",
+        "framer",
+        "bundle"
+      ]
+    },
+    {
+      "name": "power-up-developers",
+      "source": "./plugins/power-up-developers",
+      "description": "For web developers: proof checks, titles and schema, redirect maps, SEO audits and launch checks. Installs powerup-core, powerup-seo, powerup-agency in one step in Claude Code. In the Claude app, turn on those packs instead.",
+      "category": "bundle",
+      "tags": [
+        "developers",
+        "qa",
+        "schema",
+        "redirects",
+        "launch",
+        "bundle"
+      ]
+    },
+    {
+      "name": "power-up-seo-team",
+      "source": "./plugins/power-up-seo-team",
+      "description": "For SEO teams: SEO audits, content briefs, meta and schema, redirect maps and monthly client reports. Installs powerup-core, powerup-seo in one step in Claude Code. In the Claude app, turn on those packs instead.",
+      "category": "bundle",
+      "tags": [
+        "seo",
+        "seo-team",
+        "audit",
+        "content-brief",
+        "search-console",
         "bundle"
       ]
     },
