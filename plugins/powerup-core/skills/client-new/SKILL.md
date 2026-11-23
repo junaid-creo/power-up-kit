@@ -5,7 +5,7 @@ license: MIT
 compatibility: Works in Claude Code (saves files in the project) and the Claude app (gives files to add to a Claude Project).
 metadata:
   kit: power-up-kit
-  version: 0.1.1
+  version: 0.2.0
 ---
 
 # New client

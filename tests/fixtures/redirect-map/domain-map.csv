@@ -1,0 +1,3 @@
+old,new,status,type,confidence,priority,note
+https://old.example/about-us,https://new.example/about,301,similar,medium,,
+https://old.example/contact,https://new.example/contact,301,same-path,high,,Same path on the new domain

@@ -6,7 +6,7 @@ compatibility: Works in Claude Code and the Claude app. Scripts need Node.js 18+
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/page-check.mjs" *), Bash(node "${CLAUDE_SKILL_DIR}/scripts/pagespeed.mjs" *)
 metadata:
   kit: power-up-kit
-  version: 0.1.1
+  version: 0.2.0
 ---
 
 # Proof check

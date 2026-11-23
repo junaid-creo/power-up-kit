@@ -1,0 +1,14 @@
+{
+  "siteUrl": "sc-domain:crumb.example",
+  "startDate": "2026-10-01",
+  "endDate": "2026-10-31",
+  "dimensions": ["query"],
+  "rows": [
+    { "keys": ["cakes dubai marina"], "clicks": 1500, "impressions": 22000, "ctr": 0.06818, "position": 3.8 },
+    { "keys": ["birthday cakes dubai"], "clicks": 250, "impressions": 9000, "ctr": 0.02778, "position": 8.1 },
+    { "keys": ["crumb and co"], "clicks": 260, "impressions": 420, "ctr": 0.61905, "position": 1.0 },
+    { "keys": ["wedding cake price"], "clicks": 90, "impressions": 3000, "ctr": 0.03, "position": 11.2 },
+    { "keys": ["eggless cake dubai"], "clicks": 12, "impressions": 1100, "ctr": 0.01091, "position": 19.5 },
+    { "keys": ["custom cakes, dubai"], "clicks": 30, "impressions": 800, "ctr": 0.0375, "position": 12.4 }
+  ]
+}

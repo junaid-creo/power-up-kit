@@ -4,7 +4,7 @@ Hitting usage limits is the most common complaint from Claude users. Power-Up Ki
 
 ## What the kit costs you
 
-- **Always loaded:** only the short descriptions of the 9 skills, so Claude knows when to use them — **under 1,000 tokens** in total. Claude Code's own estimate (`claude plugin details`): about 550 for powerup-core and about 120 for each of the other packs. Hooks add nothing here.
+- **Always loaded:** only the short descriptions of the 14 skills, so Claude knows when to use them — **about 1,500 tokens** with every pack installed: about 550 for powerup-core, 600 for powerup-seo, 250 for powerup-agency and 100 for powerup-design. (Core is Claude Code's own figure from `claude plugin details`; the others are estimated from description length on the same scale.) Install only the packs you use to pay less. Hooks add nothing here.
 - **Loaded when used:** a skill's full instructions (roughly 450–1,200 tokens each), and its reference files only if needed.
 - **Hooks:** the session-start message is one or two lines, and only in projects with a `.powerup/` folder. The other hooks add nothing to the conversation unless they block something.
 
@@ -15,6 +15,8 @@ Reading a web page into the chat can cost thousands of tokens per page. The kit'
 - `seo-crawl.mjs` crawls 50 pages and prints a summary of a few hundred tokens; the full data goes to a file Claude opens only for the issues it writes up.
 - `page-check.mjs --summary` prints only failures and warnings.
 - `extract-brand.mjs` returns colours, fonts and samples instead of whole stylesheets.
+- `compare-pages.mjs` (content briefs) reads competitor pages and returns their outlines, lengths and questions, not the pages themselves.
+- `launch-check.mjs`, `meta-schema.mjs` and `redirect-map.mjs` print verdicts and problems; passing checks are just a list of names.
 
 ## Habits that help
 

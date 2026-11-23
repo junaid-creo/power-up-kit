@@ -1,8 +1,8 @@
 {
   "name": "powerup-seo",
   "displayName": "Power-Up Kit — SEO",
-  "description": "Full SEO audits with a crawl, Google PageSpeed, a health score and a prioritised fix list. Uses Search Console, Ahrefs or Semrush when connected.",
-  "version": "0.1.1",
+  "description": "SEO audits with a crawl, PageSpeed and a health score; content briefs built from what ranks; titles, meta and schema that pass checks; redirect maps for migrations; monthly client reports. Uses Search Console, Ahrefs or Semrush when connected.",
+  "version": "0.2.0",
   "author": {
     "name": "junaid-creo",
     "url": "https://github.com/junaid-creo"
@@ -17,7 +17,13 @@
     "core-web-vitals",
     "search-console",
     "ahrefs",
-    "semrush"
+    "semrush",
+    "content-brief",
+    "schema",
+    "structured-data",
+    "redirects",
+    "migration",
+    "seo-report"
   ],
   "dependencies": [
     "powerup-core"

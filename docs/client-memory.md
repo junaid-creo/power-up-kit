@@ -8,7 +8,9 @@ Claude forgets everything between chats. Power-Up Kit gives it a memory per clie
 .powerup/
 ├── active-client              which client you're working on now (one line, e.g. crumb-co)
 ├── agency.md                  your own business: services, prices, case studies, terms
-├── reports/                   audits, brand sheets, crawl data
+├── reports/                   audits, monthly reports, launch checks, meta and schema, crawl data
+├── briefs/                    content briefs and the research behind them
+├── redirects/                 redirect maps and platform exports
 └── clients/
     └── crumb-co/
         ├── profile.md         who they are, goals, audience, platform, contacts, links
@@ -22,7 +24,7 @@ Claude forgets everything between chats. Power-Up Kit gives it a memory per clie
 ## How Claude uses them
 
 - **At the start of every Claude Code session** a hook tells Claude which client is active and where its files are (one short message — it doesn't load the whole files, to save usage).
-- **Skills read what they need:** proposals read `agency.md`, `profile.md` and `decisions.md`; audits read `seo.md`; brand sheets read and update `brand.md` and `voice.md`.
+- **Skills read what they need:** proposals read `agency.md`, `profile.md` and `decisions.md`; audits and monthly reports read `seo.md` and add to its **Past audits** table; content briefs read `seo.md` and `voice.md` and add the keyword to `seo.md`; launches add the launch date and follow-ups to `decisions.md`; brand sheets read and update `brand.md` and `voice.md`.
 - **You add to it by talking:** *"Remember that the client wants Arabic and English"* → saved to `decisions.md` and `voice.md`.
 
 ## Commands

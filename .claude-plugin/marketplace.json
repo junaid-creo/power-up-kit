@@ -5,12 +5,12 @@
     "url": "https://github.com/junaid-creo"
   },
   "description": "Power-Up Kit — a web studio team inside Claude for web designers, developers, SEO teams and agencies. Unofficial; not affiliated with Anthropic.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "plugins": [
     {
       "name": "power-up-kit",
       "source": "./plugins/power-up-kit",
-      "description": "Everything in Power-Up Kit in one install: client memory, proof checks, SEO audits, brand sheets and proposals for web designers, developers, SEO teams and agencies.",
+      "description": "Everything in Power-Up Kit in one install: client memory, proof checks, SEO audits, content briefs, meta and schema, redirect maps, monthly SEO reports, brand sheets, proposals and launch checks for web designers, developers, SEO teams and agencies.",
       "category": "bundle",
       "tags": [
         "web-design",
@@ -39,7 +39,7 @@
     {
       "name": "powerup-seo",
       "source": "./plugins/powerup-seo",
-      "description": "Full SEO audits with a crawl, Google PageSpeed, a health score and a prioritised fix list. Uses Search Console, Ahrefs or Semrush when connected.",
+      "description": "SEO audits with a crawl, PageSpeed and a health score; content briefs built from what ranks; titles, meta and schema that pass checks; redirect maps for migrations; monthly client reports. Uses Search Console, Ahrefs or Semrush when connected.",
       "category": "marketing",
       "tags": [
         "seo",
@@ -48,7 +48,11 @@
         "core-web-vitals",
         "search-console",
         "ahrefs",
-        "semrush"
+        "semrush",
+        "content-brief",
+        "schema",
+        "redirects",
+        "seo-report"
       ]
     },
     {
@@ -67,14 +71,16 @@
     {
       "name": "powerup-agency",
       "source": "./plugins/powerup-agency",
-      "description": "Client proposals with scope, timeline and pricing options in your agency's branding — never with invented prices.",
+      "description": "Client proposals with real pricing in your branding, and a launch pipeline that catches go-live disasters (noindex, staging URLs, missing redirects, no analytics) and gets client sign-off.",
       "category": "business",
       "tags": [
         "agency",
         "proposal",
         "scope-of-work",
         "pricing",
-        "freelance"
+        "freelance",
+        "launch",
+        "go-live"
       ]
     }
   ]

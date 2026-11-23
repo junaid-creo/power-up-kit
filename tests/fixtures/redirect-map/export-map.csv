@@ -1,0 +1,11 @@
+old,new,status,type,confidence,priority,note
+/about-us.html,/about,301,similar,medium,,
+/our menu,/menu,301,,,,
+"/offers/summer,sale",/offers/summer-sale,301,,,,"Note with ""quotes"", and a comma"
+/english(default)/menu,/en/menu,301,,,,
+/old-gone,,410,,,,Gone on purpose
+/product.php?id=7,/shop/lemon-cake,301,,,,
+/services,/services,301,same-path,high,,Same URL — no redirect needed
+/still-deciding,,301,review,low,,
+/temp-offer,/offers,302,,,,
+/blog/café-news,/blog/cafe-news,301,,,,

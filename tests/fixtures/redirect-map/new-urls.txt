@@ -1,0 +1,14 @@
+# New site pages (exported from the staging site)
+/
+/about
+/contact
+/services
+
+/shop/chocolate-fudge-cake
+/shop/red-velvet-cake
+/blog/
+/blog/wedding-cake-tips
+/blog/summer-menu
+/blog/autumn-menu
+/blog/winter-menu
+gift-cards

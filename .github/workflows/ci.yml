@@ -31,7 +31,7 @@ jobs:
         run: node --test "tests/**/*.test.mjs"
         if: matrix.node >= 22
       - name: Tests (Node 20 — no built-in glob)
-        run: node --test tests/lib.test.mjs tests/scripts.test.mjs tests/hooks.test.mjs
+        run: node --test tests/*.test.mjs   # the shell expands the glob
         if: matrix.node < 22
 
   validate:

@@ -37,6 +37,8 @@ If the project has `.powerup/active-client`, Claude gets one short message: who 
 
 Everything else that mentions a secret file — `cat`, `sort`, `cut`, `less`, `source`, `python -c`, `node -e`, `sed`, `awk` and so on — is blocked, and Claude is told to ask you to look at or edit the file yourself.
 
+A regex inside a quoted script, such as `node -e '… /name: (.*)$/ …'`, is not treated as a glob: the shell never expands text in quotes. A quoted pattern that names something, like `glob.glob('.e*')` in a Python one-liner, still counts.
+
 **Turn off:** set `POWERUP_ALLOW_SECRETS=1` in your environment before starting Claude Code.
 
 ### A hard guarantee
@@ -66,12 +68,14 @@ See Claude Code's [permissions](https://code.claude.com/docs/en/permissions.md#r
 
 When Claude changes web files — `.html .css .scss .jsx .tsx .vue .svelte .astro .liquid .twig .php .mdx` and similar — the kit remembers. That includes changes through Claude's edit tools **and through the shell**: `sed -i`, `perl -pi`, `>`/`>>` redirection, `tee`, `cp`/`mv`/`rsync`, `patch`, and `prettier`/`eslint`/`stylelint --write`/`--fix` on a web file.
 
+Files in test and dependency folders (`tests/`, `__tests__/`, `fixtures/`, `node_modules/`, `vendor/`, `coverage/`) and `*.test.*` / `*.spec.*` files don't count — nobody opens those in a browser, and your test suite checks them.
+
 When Claude then tries to finish its turn **without having checked the result**, it is asked **once** to check first: run the proof-check skill, or open the page in a browser tool and take a screenshot. If it can't (no server, no URL, no browser), it must say so plainly instead of claiming it works.
 
 Only a real check counts:
 
-- the `proof-check` or `seo-audit` skill;
-- actually running `node …/page-check.mjs <url>`, `pagespeed.mjs` or `seo-crawl.mjs`;
+- the `proof-check`, `seo-audit` or `launch` skill;
+- actually running `node …/page-check.mjs <url>`, `pagespeed.mjs`, `seo-crawl.mjs` or `launch-check.mjs`;
 - `lighthouse`, `pa11y` or `axe` with a URL, `playwright test`, or an `npm run test:e2e` / `e2e` / `test:a11y` script;
 - a browser tool screenshot, snapshot or page read.
 

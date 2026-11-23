@@ -1,6 +1,6 @@
 # Power-Up Kit (bundle)
 
-Installs every Power-Up Kit pack in one step: **powerup-core** (client memory, doctor, proof-check, safety hooks), **powerup-seo** (SEO audits), **powerup-design** (brand sheets) and **powerup-agency** (proposals). This plugin has no skills of its own — it lists the four packs as dependencies, and Claude Code installs them for you.
+Installs every Power-Up Kit pack in one step: **powerup-core** (client memory, doctor, proof-check, safety hooks), **powerup-seo** (SEO audits, content briefs, meta and schema, redirect maps, monthly reports), **powerup-design** (brand sheets) and **powerup-agency** (proposals, launch checks). This plugin has no skills of its own — it lists the four packs as dependencies, and Claude Code installs them for you.
 
 ```bash
 claude plugin install power-up-kit --marketplace junaid-creo/power-up-kit

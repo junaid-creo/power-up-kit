@@ -1,0 +1,123 @@
+{
+  "site": { "name": "Crumb & Co", "url": "https://crumb.example/" },
+  "pages": [
+    {
+      "url": "https://crumb.example/",
+      "title": "Celebration Cakes in Dubai Marina | Crumb & Co",
+      "description": "Family bakery in Dubai Marina baking birthday and wedding cakes by hand every morning. Order before 10am and collect the same afternoon.",
+      "og": { "image": "https://crumb.example/images/og-home.jpg", "type": "website" },
+      "twitter": { "card": "summary_large_image" },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Bakery",
+              "@id": "https://crumb.example/#bakery",
+              "name": "Crumb & Co",
+              "url": "https://crumb.example/",
+              "logo": "https://crumb.example/logo.svg",
+              "image": "https://crumb.example/images/shop.jpg",
+              "telephone": "+971 4 555 0123",
+              "priceRange": "AED 45–350",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Shop 4, Marina Walk",
+                "addressLocality": "Dubai Marina",
+                "addressRegion": "Dubai",
+                "postalCode": "00000",
+                "addressCountry": "AE"
+              },
+              "geo": { "@type": "GeoCoordinates", "latitude": 25.0805, "longitude": 55.1403 },
+              "openingHoursSpecification": [
+                { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "07:00", "closes": "19:00" }
+              ],
+              "sameAs": ["https://www.instagram.com/crumbandco"]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://crumb.example/#website",
+              "name": "Crumb & Co",
+              "url": "https://crumb.example/",
+              "publisher": { "@id": "https://crumb.example/#bakery" }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://crumb.example/cakes/chocolate-fudge/",
+      "title": "Chocolate Fudge Birthday Cake | Crumb & Co",
+      "description": "Three layers of dark chocolate sponge and fudge icing, baked to order. Serves 12. Order online today and pick it up fresh in Dubai Marina.",
+      "og": { "image": "https://crumb.example/images/fudge-cake.jpg", "type": "product" },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Chocolate fudge birthday cake",
+          "image": "https://crumb.example/images/fudge-cake.jpg",
+          "description": "Three layers of dark chocolate sponge with fudge icing. Serves 12.",
+          "brand": { "@type": "Brand", "name": "Crumb & Co" },
+          "offers": {
+            "@type": "Offer",
+            "price": "180.00",
+            "priceCurrency": "AED",
+            "availability": "https://schema.org/InStock",
+            "url": "https://crumb.example/cakes/chocolate-fudge/"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://crumb.example/blog/how-we-bake-sourdough/",
+      "title": "How We Bake Sourdough Every Morning | Crumb & Co",
+      "description": "Inside our Dubai Marina bakery at 4am: how each sourdough loaf is mixed, folded and baked over 36 hours. Read the full story and the recipe.",
+      "og": { "image": "https://crumb.example/images/sourdough.jpg", "type": "article" },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "How we bake sourdough every morning",
+          "image": "https://crumb.example/images/sourdough.jpg",
+          "datePublished": "2026-10-02",
+          "dateModified": "2026-11-15T09:30:00+04:00",
+          "author": { "@type": "Person", "name": "Sara Haddad", "url": "https://crumb.example/team/sara/" }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://crumb.example/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://crumb.example/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "How we bake sourdough" }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://crumb.example/workshops/sourdough-basics/",
+      "title": "Sourdough Baking Workshop in Dubai Marina | Crumb & Co",
+      "description": "Learn to bake your own sourdough in a three-hour class with our head baker. Small groups of eight, all ingredients included. Book a place.",
+      "og": { "image": "https://crumb.example/images/workshop.jpg", "type": "website" },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Event",
+          "name": "Sourdough basics workshop",
+          "description": "A three-hour hands-on class with our head baker.",
+          "image": "https://crumb.example/images/workshop.jpg",
+          "startDate": "2026-12-12T09:00:00+04:00",
+          "endDate": "2026-12-12T12:00:00+04:00",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "location": {
+            "@type": "Place",
+            "name": "Crumb & Co",
+            "address": { "@type": "PostalAddress", "streetAddress": "Shop 4, Marina Walk", "addressLocality": "Dubai Marina", "addressCountry": "AE" }
+          },
+          "organizer": { "@type": "Organization", "name": "Crumb & Co", "url": "https://crumb.example/" },
+          "offers": { "@type": "Offer", "price": "250", "priceCurrency": "AED", "availability": "https://schema.org/InStock", "url": "https://crumb.example/workshops/sourdough-basics/" }
+        }
+      ]
+    }
+  ]
+}

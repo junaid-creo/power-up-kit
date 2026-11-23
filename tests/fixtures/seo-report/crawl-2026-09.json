@@ -1,0 +1,476 @@
+{
+  "meta": {
+    "tool": "power-up-kit/seo-crawl",
+    "version": "0.1.1",
+    "inputUrl": "https://crumb.example/",
+    "startUrl": "https://crumb.example/",
+    "startRedirected": false,
+    "crawledAt": "2026-09-30T08:00:00.000Z",
+    "durationSeconds": 12,
+    "maxPages": 50,
+    "pagesCrawled": 9,
+    "htmlPages": 8,
+    "indexablePages": 8,
+    "discoveredNotCrawled": 0,
+    "skippedByRobots": 0,
+    "userAgent": "PowerUpKit/0.1.1",
+    "scoring": "Starts at 100."
+  },
+  "score": 61,
+  "site": {
+    "robotsTxt": {
+      "found": true,
+      "status": 200,
+      "blocksEverything": false,
+      "sitemapsListed": [
+        "https://crumb.example/sitemap.xml"
+      ]
+    },
+    "sitemap": {
+      "urlCount": 8,
+      "files": [
+        "https://crumb.example/sitemap.xml"
+      ]
+    },
+    "httpsEnforced": true,
+    "hostVariant": {
+      "tested": "www.crumb.example",
+      "status": 301,
+      "redirectsToMainHost": true
+    },
+    "notFoundStatus": 404,
+    "soft404": false
+  },
+  "issues": [
+    {
+      "id": "broken-internal-links",
+      "severity": "critical",
+      "title": "Broken internal links",
+      "why": "Why it matters.",
+      "fix": "How to fix it.",
+      "count": 2,
+      "ofTotal": 2,
+      "examples": [
+        {
+          "url": "https://crumb.example/old-menu",
+          "status": 404,
+          "foundOn": [
+            "https://crumb.example/"
+          ]
+        },
+        {
+          "url": "https://crumb.example/old-prices",
+          "status": 404,
+          "foundOn": [
+            "https://crumb.example/cakes"
+          ]
+        }
+      ],
+      "deduction": 15
+    },
+    {
+      "id": "duplicate-titles",
+      "severity": "high",
+      "title": "Duplicate titles",
+      "why": "Why it matters.",
+      "fix": "How to fix it.",
+      "count": 1,
+      "ofTotal": 8,
+      "examples": [
+        {
+          "title": "Cakes",
+          "urls": [
+            "https://crumb.example/cakes",
+            "https://crumb.example/blog/wedding-cakes"
+          ]
+        }
+      ],
+      "deduction": 6
+    },
+    {
+      "id": "missing-meta-description",
+      "severity": "medium",
+      "title": "Pages without a meta description",
+      "why": "Why it matters.",
+      "fix": "How to fix it.",
+      "count": 4,
+      "ofTotal": 8,
+      "examples": [
+        "https://crumb.example/about",
+        "https://crumb.example/cakes",
+        "https://crumb.example/gallery",
+        "https://crumb.example/blog/wedding-cakes"
+      ],
+      "deduction": 4
+    },
+    {
+      "id": "images-missing-alt",
+      "severity": "medium",
+      "title": "Images without alt text",
+      "why": "Why it matters.",
+      "fix": "How to fix it.",
+      "count": 3,
+      "ofTotal": 8,
+      "examples": [
+        {
+          "url": "https://crumb.example/gallery",
+          "images": 6
+        },
+        {
+          "url": "https://crumb.example/blog/wedding-cakes",
+          "images": 2
+        },
+        {
+          "url": "https://crumb.example/cupcakes",
+          "images": 1
+        }
+      ],
+      "deduction": 4
+    },
+    {
+      "id": "thin-content",
+      "severity": "medium",
+      "title": "Thin pages (under 200 words)",
+      "why": "Why it matters.",
+      "fix": "How to fix it.",
+      "count": 2,
+      "ofTotal": 8,
+      "examples": [
+        {
+          "url": "https://crumb.example/contact",
+          "words": 90
+        },
+        {
+          "url": "https://crumb.example/gallery",
+          "words": 40
+        }
+      ],
+      "deduction": 4
+    },
+    {
+      "id": "missing-open-graph",
+      "severity": "low",
+      "title": "Pages without social sharing tags",
+      "why": "Why it matters.",
+      "fix": "How to fix it.",
+      "count": 8,
+      "ofTotal": 8,
+      "examples": [
+        "https://crumb.example/",
+        "https://crumb.example/about"
+      ],
+      "deduction": 2
+    }
+  ],
+  "brokenLinks": [
+    {
+      "url": "https://crumb.example/old-menu",
+      "status": 404,
+      "foundOn": [
+        "https://crumb.example/"
+      ]
+    },
+    {
+      "url": "https://crumb.example/old-prices",
+      "status": 404,
+      "foundOn": [
+        "https://crumb.example/cakes"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://crumb.example/",
+      "finalUrl": "https://crumb.example/",
+      "status": 200,
+      "redirects": 0,
+      "redirectChain": [],
+      "timeMs": 120,
+      "error": null,
+      "inSitemap": true,
+      "depth": 1,
+      "title": "Crumb & Co — Cakes in Dubai Marina",
+      "titleLength": 34,
+      "metaDescription": "Family bakery in Dubai Marina baking custom cakes, cupcakes and treats every day.",
+      "metaDescriptionLength": 81,
+      "h1": [
+        "Heading"
+      ],
+      "canonical": "https://crumb.example/",
+      "noindex": false,
+      "nofollow": false,
+      "lang": "en",
+      "viewport": true,
+      "wordCount": 420,
+      "images": 3,
+      "imagesMissingAlt": 0,
+      "internalLinks": 8,
+      "externalLinks": 1,
+      "ogTitle": false,
+      "ogImage": false,
+      "schemaTypes": [],
+      "invalidJsonLd": 0,
+      "hreflang": 0,
+      "mixedContent": 0,
+      "headingSkips": 0
+    },
+    {
+      "url": "https://crumb.example/about",
+      "finalUrl": "https://crumb.example/about",
+      "status": 200,
+      "redirects": 0,
+      "redirectChain": [],
+      "timeMs": 120,
+      "error": null,
+      "inSitemap": true,
+      "depth": 1,
+      "title": "About Crumb & Co",
+      "titleLength": 16,
+      "metaDescription": null,
+      "metaDescriptionLength": 0,
+      "h1": [
+        "Heading"
+      ],
+      "canonical": "https://crumb.example/about",
+      "noindex": false,
+      "nofollow": false,
+      "lang": "en",
+      "viewport": true,
+      "wordCount": 420,
+      "images": 3,
+      "imagesMissingAlt": 0,
+      "internalLinks": 8,
+      "externalLinks": 1,
+      "ogTitle": false,
+      "ogImage": false,
+      "schemaTypes": [],
+      "invalidJsonLd": 0,
+      "hreflang": 0,
+      "mixedContent": 0,
+      "headingSkips": 0
+    },
+    {
+      "url": "https://crumb.example/cakes",
+      "finalUrl": "https://crumb.example/cakes",
+      "status": 200,
+      "redirects": 0,
+      "redirectChain": [],
+      "timeMs": 120,
+      "error": null,
+      "inSitemap": true,
+      "depth": 1,
+      "title": "Cakes",
+      "titleLength": 5,
+      "metaDescription": null,
+      "metaDescriptionLength": 0,
+      "h1": [
+        "Heading"
+      ],
+      "canonical": "https://crumb.example/cakes",
+      "noindex": false,
+      "nofollow": false,
+      "lang": "en",
+      "viewport": true,
+      "wordCount": 420,
+      "images": 3,
+      "imagesMissingAlt": 0,
+      "internalLinks": 8,
+      "externalLinks": 1,
+      "ogTitle": false,
+      "ogImage": false,
+      "schemaTypes": [],
+      "invalidJsonLd": 0,
+      "hreflang": 0,
+      "mixedContent": 0,
+      "headingSkips": 0
+    },
+    {
+      "url": "https://crumb.example/contact",
+      "finalUrl": "https://crumb.example/contact",
+      "status": 200,
+      "redirects": 0,
+      "redirectChain": [],
+      "timeMs": 120,
+      "error": null,
+      "inSitemap": true,
+      "depth": 1,
+      "title": "Contact Crumb & Co",
+      "titleLength": 18,
+      "metaDescription": "Call, email or visit our Dubai Marina bakery. Open every day from 8 am to 10 pm.",
+      "metaDescriptionLength": 80,
+      "h1": [
+        "Heading"
+      ],
+      "canonical": "https://crumb.example/contact",
+      "noindex": false,
+      "nofollow": false,
+      "lang": "en",
+      "viewport": true,
+      "wordCount": 90,
+      "images": 3,
+      "imagesMissingAlt": 0,
+      "internalLinks": 8,
+      "externalLinks": 1,
+      "ogTitle": false,
+      "ogImage": false,
+      "schemaTypes": [],
+      "invalidJsonLd": 0,
+      "hreflang": 0,
+      "mixedContent": 0,
+      "headingSkips": 0
+    },
+    {
+      "url": "https://crumb.example/gallery",
+      "finalUrl": "https://crumb.example/gallery",
+      "status": 200,
+      "redirects": 0,
+      "redirectChain": [],
+      "timeMs": 120,
+      "error": null,
+      "inSitemap": true,
+      "depth": 1,
+      "title": "Gallery",
+      "titleLength": 7,
+      "metaDescription": null,
+      "metaDescriptionLength": 0,
+      "h1": [
+        "Heading"
+      ],
+      "canonical": "https://crumb.example/gallery",
+      "noindex": false,
+      "nofollow": false,
+      "lang": "en",
+      "viewport": true,
+      "wordCount": 40,
+      "images": 3,
+      "imagesMissingAlt": 6,
+      "internalLinks": 8,
+      "externalLinks": 1,
+      "ogTitle": false,
+      "ogImage": false,
+      "schemaTypes": [],
+      "invalidJsonLd": 0,
+      "hreflang": 0,
+      "mixedContent": 0,
+      "headingSkips": 0
+    },
+    {
+      "url": "https://crumb.example/blog",
+      "finalUrl": "https://crumb.example/blog",
+      "status": 200,
+      "redirects": 0,
+      "redirectChain": [],
+      "timeMs": 120,
+      "error": null,
+      "inSitemap": true,
+      "depth": 1,
+      "title": "Blog",
+      "titleLength": 4,
+      "metaDescription": "Cake tips, recipes and news from the Crumb & Co bakery in Dubai Marina.",
+      "metaDescriptionLength": 71,
+      "h1": [
+        "Heading"
+      ],
+      "canonical": "https://crumb.example/blog",
+      "noindex": false,
+      "nofollow": false,
+      "lang": "en",
+      "viewport": true,
+      "wordCount": 420,
+      "images": 3,
+      "imagesMissingAlt": 0,
+      "internalLinks": 8,
+      "externalLinks": 1,
+      "ogTitle": false,
+      "ogImage": false,
+      "schemaTypes": [],
+      "invalidJsonLd": 0,
+      "hreflang": 0,
+      "mixedContent": 0,
+      "headingSkips": 0
+    },
+    {
+      "url": "https://crumb.example/blog/wedding-cakes",
+      "finalUrl": "https://crumb.example/blog/wedding-cakes",
+      "status": 200,
+      "redirects": 0,
+      "redirectChain": [],
+      "timeMs": 120,
+      "error": null,
+      "inSitemap": true,
+      "depth": 1,
+      "title": "Cakes",
+      "titleLength": 5,
+      "metaDescription": null,
+      "metaDescriptionLength": 0,
+      "h1": [
+        "Heading"
+      ],
+      "canonical": "https://crumb.example/blog/wedding-cakes",
+      "noindex": false,
+      "nofollow": false,
+      "lang": "en",
+      "viewport": true,
+      "wordCount": 420,
+      "images": 3,
+      "imagesMissingAlt": 2,
+      "internalLinks": 8,
+      "externalLinks": 1,
+      "ogTitle": false,
+      "ogImage": false,
+      "schemaTypes": [],
+      "invalidJsonLd": 0,
+      "hreflang": 0,
+      "mixedContent": 0,
+      "headingSkips": 0
+    },
+    {
+      "url": "https://crumb.example/cupcakes",
+      "finalUrl": "https://crumb.example/cupcakes",
+      "status": 200,
+      "redirects": 0,
+      "redirectChain": [],
+      "timeMs": 120,
+      "error": null,
+      "inSitemap": true,
+      "depth": 1,
+      "title": "Cupcakes in Dubai Marina | Crumb & Co",
+      "titleLength": 37,
+      "metaDescription": "Fresh cupcakes baked every morning in Dubai Marina, with same-day delivery across Dubai.",
+      "metaDescriptionLength": 88,
+      "h1": [
+        "Heading"
+      ],
+      "canonical": "https://crumb.example/cupcakes",
+      "noindex": false,
+      "nofollow": false,
+      "lang": "en",
+      "viewport": true,
+      "wordCount": 420,
+      "images": 3,
+      "imagesMissingAlt": 1,
+      "internalLinks": 8,
+      "externalLinks": 1,
+      "ogTitle": false,
+      "ogImage": false,
+      "schemaTypes": [],
+      "invalidJsonLd": 0,
+      "hreflang": 0,
+      "mixedContent": 0,
+      "headingSkips": 0
+    },
+    {
+      "url": "https://crumb.example/old-menu",
+      "finalUrl": "https://crumb.example/old-menu",
+      "status": 404,
+      "redirects": 0,
+      "redirectChain": [],
+      "timeMs": 120,
+      "error": null,
+      "inSitemap": false,
+      "depth": 1
+    }
+  ],
+  "nonHtml": [],
+  "skippedByRobots": []
+}

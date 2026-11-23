@@ -5,7 +5,7 @@ import { mkdtempSync, mkdirSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { isSecretPath, bashTouchesSecret, bashWebEdits, bashIsCheck, globReachesSecret } from '../plugins/powerup-core/hooks/scripts/powerup-hook.mjs';
+import { isSecretPath, bashTouchesSecret, bashWebEdits, bashIsCheck, globReachesSecret, isPageFile } from '../plugins/powerup-core/hooks/scripts/powerup-hook.mjs';
 
 const HOOK = fileURLToPath(new URL('../plugins/powerup-core/hooks/scripts/powerup-hook.mjs', import.meta.url));
 const dataDir = mkdtempSync(join(tmpdir(), 'powerup-hook-data-'));
@@ -148,8 +148,41 @@ test('proof gate notices web files changed through the shell', () => {
   assert.deepEqual(bashWebEdits("sed -n '1,5p' index.html"), []);
 });
 
+test('regexes inside quoted scripts are not globs', () => {
+  const project = mkdtempSync(join(tmpdir(), 'powerup-glob-'));
+  writeFileSync(join(project, '.env'), 'X=1\n');
+  for (const cmd of [
+    `node -e 'const m = t.match(/^description: (.*)$/m); console.log(m[1])'`,
+    `grep -E "^name: .*" plugins/a/SKILL.md`,
+    `python3 -c "import re; print(re.findall(r'[a-z]*', 'abc'))"`,
+    `cat '.*'`,
+  ]) {
+    assert.equal(bashTouchesSecret(cmd, project), null, `allowed: ${cmd}`);
+  }
+  for (const cmd of [
+    'cat .*',
+    'cat .e*',
+    `python3 -c "import glob; print(open(glob.glob('.e*')[0]).read())"`,
+    `node -e 'console.log(require("fs").readFileSync(".env", "utf8"))'`,
+  ]) {
+    assert.ok(bashTouchesSecret(cmd, project), `blocked: ${cmd}`);
+  }
+});
+
+test('proof gate ignores tests, fixtures and dependencies', () => {
+  for (const f of ['src/pages/index.astro', '/Users/a b/site/about.html', 'theme/sections/hero.liquid', 'app/page.tsx', 'C:\\site\\index.html', 'latest/index.html']) {
+    assert.equal(isPageFile(f), true, `page: ${f}`);
+  }
+  for (const f of ['tests/fixtures/content-brief/comp-a.html', '/repo/test/page.html', 'src/__tests__/Nav.tsx', 'Button.test.tsx', 'nav.spec.jsx',
+    'node_modules/pkg/index.html', 'C:\\repo\\fixtures\\a.html', 'coverage/index.html', 'notes.md']) {
+    assert.equal(isPageFile(f), false, `not a page: ${f}`);
+  }
+  assert.deepEqual(bashWebEdits('echo hi > tests/fixtures/site/x.html'), []);
+  assert.deepEqual(bashWebEdits('echo hi > public/x.html'), ['public/x.html']);
+});
+
 test('proof gate only clears on a real check', () => {
-  for (const cmd of ['npm i lighthouse', 'echo lighthouse', 'grep -r pa11y docs', 'cat page-check.mjs', 'npm run build']) {
+  for (const cmd of ['npm i lighthouse', 'echo lighthouse', 'cat launch-check.mjs', 'grep -r pa11y docs', 'cat page-check.mjs', 'npm run build']) {
     assert.equal(bashIsCheck(cmd), false, `not a check: ${cmd}`);
   }
   for (const cmd of [
@@ -159,6 +192,7 @@ test('proof gate only clears on a real check', () => {
     'npx playwright test',
     'node "/Users/a b/plugins/powerup-core/skills/proof-check/scripts/page-check.mjs" http://localhost:3000 --summary',
     'cd site && node scripts/seo-crawl.mjs https://example.com --max 20',
+    'node "${CLAUDE_SKILL_DIR}/scripts/launch-check.mjs" https://staging.example.com --phase pre',
   ]) {
     assert.equal(bashIsCheck(cmd), true, `is a check: ${cmd}`);
   }

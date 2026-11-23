@@ -6,7 +6,7 @@ compatibility: Works in Claude Code and the Claude app. The setup script needs N
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/doctor.mjs" *), Bash(node "${CLAUDE_SKILL_DIR}/scripts/doctor.mjs")
 metadata:
   kit: power-up-kit
-  version: 0.1.1
+  version: 0.2.0
 ---
 
 # Doctor
@@ -31,18 +31,18 @@ Look at the tools you (Claude) have in this session and fill this table. Don't g
 
 | Need | Tool names to look for | Used by |
 |---|---|---|
-| A browser (screenshots, clicking) | Playwright (`browser_*`), Claude in Chrome, the desktop app's built-in browser | proof-check, brand-sheet |
-| Website reading at scale | Firecrawl | seo-audit, brand-sheet |
+| A browser (screenshots, clicking) | Playwright (`browser_*`), Claude in Chrome, the desktop app's built-in browser | proof-check, brand-sheet, launch |
+| Website reading at scale | Firecrawl | seo-audit, content-brief, brand-sheet |
 | Design files | Figma | brand-sheet, proof-check |
-| Site builders | Webflow, Framer, WordPress, Shopify | build and content work |
-| Search data | Google Search Console, Ahrefs, Semrush | seo-audit |
-| Kit skills | proof-check, client-new, seo-audit, brand-sheet, proposal | — |
+| Site builders | Webflow, Framer, WordPress, Shopify | build and content work, meta-schema, redirect-map |
+| Search data | Google Search Console, Ahrefs, Semrush | seo-audit, content-brief, redirect-map, seo-report |
+| Kit skills | proof-check, client-new, seo-audit, content-brief, meta-schema, redirect-map, seo-report, brand-sheet, proposal, launch | — |
 
 ## 3. Report
 
 ```markdown
 ## Power-Up Kit check — <date>
-**Ready for:** client memory ✅ · proof checks ✅ · SEO audits ⚠️ · brand sheets ✅ · proposals ✅
+**Ready for:** client memory ✅ · proof checks ✅ · SEO audits ⚠️ · SEO reports ⚠️ · brand sheets ✅ · proposals ✅ · launches ✅
 
 | Item | Status | Fix |
 |---|---|---|

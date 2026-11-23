@@ -224,14 +224,44 @@ export function globReachesSecret(token, cwd) {
 }
 
 /** Secret files a piece of shell text refers to (by name or by a glob). */
-export function secretRefs(text, cwd) {
+/** The command with quoted text blanked out — the shell only expands globs outside quotes. */
+function unquotedText(text) {
+  let out = '';
+  let quote = null;
+  const s = String(text || '');
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    if (quote) { if (c === quote) quote = null; out += ' '; continue; }
+    if (c === '"' || c === "'") { quote = c; out += ' '; continue; }
+    out += c;
+  }
+  return out;
+}
+
+/**
+ * Glob-looking tokens that appear only inside quotes and name nothing specific
+ * (`.*`, `*`, `[a-z]*` — almost always a regex in a script). The shell doesn't expand
+ * them, so they don't count. Quoted globs that name something (`.e*`, `*.pem`) still count:
+ * a script could pass them to its own glob function.
+ */
+export function weakQuotedGlobs(command) {
+  const literal = (g) => g.replace(/\[[^\]]*\]|[*?]/g, '').length;
+  const live = new Set(unquotedText(command).split(TOKEN_SPLIT));
+  const weak = new Set();
+  for (const t of String(command || '').split(TOKEN_SPLIT)) {
+    if (t && /[*?[]/.test(t) && literal(t) < 2 && !live.has(t)) weak.add(t);
+  }
+  return weak;
+}
+
+export function secretRefs(text, cwd, skipGlobs = null) {
   // `--env-file .env` hands the file to a program (node, docker, bun, deno) without printing it.
   const cleaned = String(text || '').replace(/--env-file(?:-if-exists)?(?:=|\s+)\S+/g, ' ');
   const refs = [];
   for (const t of cleaned.split(TOKEN_SPLIT)) {
     if (!t) continue;
     if (isSecretPath(t)) refs.push(t);
-    else if (/[*?[]/.test(t)) {
+    else if (/[*?[]/.test(t) && !skipGlobs?.has(t)) {
       const m = globReachesSecret(t, cwd);
       if (m) refs.push(`${t} → ${m}`);
     }
@@ -245,8 +275,8 @@ const COPY_COMMANDS = new Set(['cp', 'mv', 'ln', 'install', 'rsync', 'scp']);
 // `git commit` is here so a message that mentions ".env" isn't blocked; `git add .env` stays blocked.
 const SAFE_GIT = new Set(['check-ignore', 'ls-files', 'status', 'rm', 'mv', 'restore', 'commit']);
 
-function segmentHit(segment, cwd) {
-  const refs = secretRefs(segment, cwd);
+function segmentHit(segment, cwd, skipGlobs) {
+  const refs = secretRefs(segment, cwd, skipGlobs);
   if (!refs.length) return null;
   // Writing into a secret file (> or >>) overwrites or edits it — same rule as the Write tool.
   for (const m of segment.matchAll(/(?:\d|&)?>>?\s*["']?([^\s"'<>|;&]+)/g)) if (isSecretPath(m[1])) return m[1];
@@ -274,12 +304,14 @@ function segmentHit(segment, cwd) {
 /** Returns the secret a shell command would expose or overwrite, or null. Best effort. */
 export function bashTouchesSecret(command, cwd) {
   if (!command) return null;
-  const all = secretRefs(command, cwd);
+  // Decided on the whole command: splitting into segments can cut a quoted script in half.
+  const skipGlobs = weakQuotedGlobs(command);
+  const all = secretRefs(command, cwd, skipGlobs);
   if (!all.length) return null;
   // Command or process substitution, or piping names into xargs, can read a file "invisibly".
   if (/\$\(|`|<\(|\bxargs\b/.test(command)) return all[0];
   for (const seg of splitSegments(command)) {
-    const hit = segmentHit(seg, cwd);
+    const hit = segmentHit(seg, cwd, skipGlobs);
     if (hit) return hit;
   }
   return null;
@@ -314,7 +346,14 @@ function preTool(input) {
 // ---------------------------------------------------------------------------
 const WEB_EXT = 'html?|css|scss|sass|less|jsx|tsx|vue|svelte|astro|liquid|twig|hbs|handlebars|njk|ejs|erb|php|mdx';
 const WEB_FILE = new RegExp(`\\.(${WEB_EXT})$`, 'i');
-const CHECK_SKILL = /(^|:)(proof-check|seo-audit)$/;
+// Test files, fixtures and dependencies are not pages anyone opens — the test suite checks them.
+const NOT_A_PAGE = /(^|[\\/])(tests?|__tests__|specs?|fixtures|__fixtures__|__mocks__|__snapshots__|node_modules|vendor|coverage)([\\/]|$)|\.(test|spec)\.[a-z]+$/i;
+
+/** A web file whose change should be checked in a browser (not a test, fixture or dependency). */
+export function isPageFile(p) {
+  return WEB_FILE.test(String(p || '')) && !NOT_A_PAGE.test(String(p));
+}
+const CHECK_SKILL = /(^|:)(proof-check|seo-audit|launch)$/;
 const LOOK_TOOL = /screenshot|snapshot|read_page|get_page_text/i;
 const SHELL_EDITS = /\bsed\b[^|;&]*\s(?:-[a-zA-Z]*i|--in-place)|\bperl\s+-[a-zA-Z]*i|\btee\b|\b(?:cp|mv|install|rsync|patch|truncate)\b|\b(?:prettier|eslint|stylelint)\b[^|;&]*--(?:write|fix)/;
 
@@ -322,16 +361,16 @@ const SHELL_EDITS = /\bsed\b[^|;&]*\s(?:-[a-zA-Z]*i|--in-place)|\bperl\s+-[a-zA-
 export function bashWebEdits(command) {
   const files = new Set();
   const cmd = String(command || '');
-  for (const m of cmd.matchAll(/(?:\d|&)?>>?\s*["']?([^\s"'<>|;&]+)/g)) if (WEB_FILE.test(m[1])) files.add(m[1]);
+  for (const m of cmd.matchAll(/(?:\d|&)?>>?\s*["']?([^\s"'<>|;&]+)/g)) if (isPageFile(m[1])) files.add(m[1]);
   if (SHELL_EDITS.test(cmd)) {
-    for (const t of cmd.split(/[\s;&|<>()'"`]+/)) if (WEB_FILE.test(t)) files.add(t);
+    for (const t of cmd.split(/[\s;&|<>()'"`]+/)) if (isPageFile(t)) files.add(t);
   }
   return [...files];
 }
 
 /** Is this shell command a real check of web output? (A word like "lighthouse" alone is not.) */
 export function bashIsCheck(command) {
-  const script = '(?:page-check|pagespeed|seo-crawl)\\.mjs';
+  const script = '(?:page-check|pagespeed|seo-crawl|launch-check)\\.mjs';
   const runScript = new RegExp(`^node\\s+(?:"[^"]*${script}"|'[^']*${script}'|\\S*${script})\\s+\\S`);
   return splitSegments(command).some((seg) => {
     const s = stripPrefixes(seg);
@@ -366,7 +405,7 @@ function postTool(input) {
   const file = stateFile(input.session_id);
   if (['Write', 'Edit', 'MultiEdit', 'NotebookEdit'].includes(tool)) {
     const p = ti.file_path || ti.notebook_path || '';
-    if (WEB_FILE.test(p)) arm(file, [p]);
+    if (isPageFile(p)) arm(file, [p]);
     return;
   }
   if (tool === 'Bash') {
@@ -396,7 +435,8 @@ function stop(input) {
   try { files = JSON.parse(readFileSync(file, 'utf8')).files || []; } catch { /* ignore */ }
   rmSync(file, { force: true }); // ask once per batch of edits, never loop
   if (!files.length) return 0;
-  const list = files.slice(0, 5).map((f) => basename(f)).join(', ') + (files.length > 5 ? ` and ${files.length - 5} more` : '');
+  const names = [...new Set(files.map((f) => basename(f)))]; // the same file may be saved by absolute and relative path
+  const list = names.slice(0, 5).join(', ') + (names.length > 5 ? ` and ${names.length - 5} more` : '');
   process.stderr.write(
     `Power-Up Kit proof gate: web files changed in this session (${list}) but the result wasn't checked. ` +
     'Before saying it works, check it: use the proof-check skill, or open the page in a browser tool and take a screenshot. ' +

@@ -5,7 +5,7 @@ license: MIT
 compatibility: Works in Claude Code (edits .powerup/ in the project). In the Claude app, gives an updated file to replace in the client's Claude Project.
 metadata:
   kit: power-up-kit
-  version: 0.1.1
+  version: 0.2.0
 ---
 
 # Client note

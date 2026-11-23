@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.2.0 — 2026-11-23
+
+Five new skills: the SEO pack grows from one skill to five, and the agency pack gets a launch pipeline.
+
+### Added
+- **`content-brief`** (SEO): compares the pages that rank for a keyword — length, headings, shared subtopics, questions, schema, dates — and writes a brief with title, H1 and meta options, an outline, the angle competitors miss, internal links and trust notes. Checks Search Console for a page that already competes for the keyword. Never invents search volume or difficulty.
+- **`meta-schema`** (SEO): scans current titles, meta descriptions, Open Graph tags and JSON-LD; writes new ones and checks them (length, estimated pixel width, duplicates, placeholders, required schema fields, self-serving review stars); outputs paste-ready code and steps for WordPress, Webflow, Framer, Shopify, Next.js and plain HTML.
+- **`redirect-map`** (SEO): matches old URLs to new ones for redesigns and migrations (exact path, same slug, similar words, optional title check), flags unsure rows instead of sending them to the homepage, checks for chains and loops, exports for Netlify, Vercel, Next.js, Apache, Nginx, Cloudflare, Shopify, WordPress, Webflow and Framer, and verifies redirects on the live site.
+- **`seo-report`** (SEO): monthly client report — compares two crawls and two Search Console periods (CSV exports or the connector), finds top movers and striking-distance keywords, adds work done and next steps, and renders a branded, printable page. Missing data is marked "Not connected".
+- **`launch`** (agency): go-live pipeline — `launch-check.mjs` catches noindex and robots.txt blocks, staging URLs in links, canonicals and sitemaps, soft 404s, placeholder text, missing analytics, consent and legal pages, and broken redirects; then a go / no-go with evidence, client sign-off, platform launch-day steps and week-1 / month-1 follow-ups.
+
+### Changed
+- **Proof gate** ignores test files, fixtures and dependencies (`tests/`, `__tests__/`, `fixtures/`, `node_modules/`, `*.test.*`, `*.spec.*`), lists each changed file once, and counts the `launch` skill and `launch-check.mjs` as real checks.
+- **Secret guard rail:** a regex such as `.*` inside a quoted script (`node -e '…'`, `python -c "…"`) no longer counts as a file glob — the shell never expands it. Quoted globs that name something, such as `.e*`, are still blocked, and so is every unquoted glob that reaches a secret file.
+- `seo-audit` now leaves monthly client reports to `seo-report`.
+- The doctor lists the new skills and the connectors they use.
+- Docs: Search Console CSV exports work without a connector; FAQ rich results are no longer shown by Google (since 7 May 2026), so no skill promises them.
+
 ## 0.1.1 — 2026-11-20
 
 Fixes from an independent review of 0.1.0.

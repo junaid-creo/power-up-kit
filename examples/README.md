@@ -4,6 +4,8 @@
 
 [real-audit-junaid-aj.md](real-audit-junaid-aj.md) — `seo-audit` + `proof-check` on a live portfolio site (published with the owner's permission): crawl score, 17 page checks, accessibility and mobile checks in a real browser, page weight, and an honest "not checked" list.
 
+[real-launch-junaid-aj.md](real-launch-junaid-aj.md) — `launch` (post-launch check) + `meta-schema` (scan) on the same site with 0.2: go / no-go verdict, 20 launch checks with evidence, title and description pixel widths, schema validation.
+
 ## Demo site
 
 Real output from Power-Up Kit, made by running its scripts on the kit's demo website (`tests/fixtures/site` — a fictional bakery, **Crumb & Co**, with SEO problems planted on purpose). The local address was replaced with `crumb.example`. The agency "Demo Studio", its prices and case studies are fictional too.

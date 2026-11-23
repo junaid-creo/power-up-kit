@@ -1,0 +1,14 @@
+/
+/c
+/x4
+/one
+/two
+/somewhere
+/shop/lemon-cake
+/about-us
+/team
+/journal/summer-menu
+/journal/autumn-menu
+/journal/winter-menu
+/events/special-day
+/contact

@@ -1,0 +1,12 @@
+old,new,status
+/old-a,/new-a,301
+/old-b,/new-b,301
+/old-c,/new-c,301
+/old-d,/new-d,301
+/old-e,/new-e,301
+/gone,,410
+/gone-404,,410
+/old-f,/new-f,301
+/old-g,/new-g,301
+/old-h,/new-h,301
+/kept,/kept,301

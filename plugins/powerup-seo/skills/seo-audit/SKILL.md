@@ -1,12 +1,12 @@
 ---
 name: seo-audit
-description: Run a full SEO audit of a website — crawls the pages, checks technical and on-page SEO, measures speed with Google PageSpeed, scores the site out of 100 and writes a prioritised fix list with evidence. Uses Google Search Console, Ahrefs or Semrush data when those connectors are available. Use when the user asks for an SEO audit, site audit, SEO check, "why don't we rank?", a pre-launch or post-migration SEO check, or an SEO report for a client.
+description: Run a full SEO audit of a website — crawls the pages, checks technical and on-page SEO, measures speed with Google PageSpeed, scores the site out of 100 and writes a prioritised fix list with evidence. Uses Google Search Console, Ahrefs or Semrush data when those connectors are available. Use when the user asks for an SEO audit, site audit, SEO check, "why don't we rank?", a pre-launch or post-migration SEO check, or a one-off audit report for a client. For a monthly or recurring client report, use seo-report.
 license: MIT
 compatibility: Works in Claude Code and the Claude app. Scripts need Node.js 18+ and internet access to the website. Search Console, Ahrefs and Semrush are optional connectors.
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/seo-crawl.mjs" *), Bash(node "${CLAUDE_SKILL_DIR}/scripts/pagespeed.mjs" *)
 metadata:
   kit: power-up-kit
-  version: 0.1.1
+  version: 0.2.0
 ---
 
 # SEO audit

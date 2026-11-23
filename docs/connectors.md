@@ -8,7 +8,7 @@ Connectors (MCP servers) let Claude use your other tools. Power-Up Kit works wit
 
 **In Claude Code**, run the command, then type `/mcp` in a session and sign in when asked.
 
-## Browser — for screenshots and clicking (used by proof-check, brand-sheet)
+## Browser — for screenshots and clicking (used by proof-check, brand-sheet, launch)
 
 You need **one** of these:
 
@@ -18,7 +18,7 @@ You need **one** of these:
 | **Claude in Chrome** | Install the Claude extension in Chrome and connect it. |
 | **Playwright MCP** (Microsoft) — free | Claude Code: `claude mcp add playwright npx @playwright/mcp@latest` or `claude plugin install playwright@claude-plugins-official`. Desktop config: `{"mcpServers":{"playwright":{"command":"npx","args":["@playwright/mcp@latest"]}}}`. Runs locally, so it can't be a claude.ai web connector. Needs Node.js. [Source](https://github.com/microsoft/playwright-mcp) |
 
-## Firecrawl — read websites at scale (seo-audit, brand-sheet)
+## Firecrawl — read websites at scale (seo-audit, content-brief, brand-sheet)
 
 - **Claude app:** in the connector directory, or custom connector `https://mcp.firecrawl.dev/v2/mcp-oauth`.
 - **Claude Code:** `claude mcp add --transport http firecrawl https://mcp.firecrawl.dev/v2/mcp-oauth` (or `claude plugin install firecrawl@claude-plugins-official`).
@@ -64,6 +64,8 @@ Google has no official Search Console MCP server (it does have one for Google An
 ```
 
 Review community servers before giving them access to your Google account.
+
+**No connector? Use exports.** `seo-report`, `redirect-map` and `content-brief` also read the CSV files Search Console gives you: **Performance → Export → Download CSV** (queries and pages), for this period and the one before. Ahrefs, Semrush and Screaming Frog exports work for `redirect-map` too.
 
 ## Ahrefs
 

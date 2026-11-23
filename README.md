@@ -46,7 +46,7 @@ More options (one pack only, teams, updates, older versions): [docs/install.md](
 | | Power-up | What it means for you |
 |---|---|---|
 | 🧠 | **Remembers every client** | Brand colours, fonts, tone of voice, SEO goals and past decisions are saved per client. Every new chat starts knowing them. Switch clients in one sentence. |
-| ⚡ | **Finishes real jobs in one step** | SEO audit with a score and fix list. Brand sheet from any website. A client proposal in your branding. Not tips — finished work. |
+| ⚡ | **Finishes real jobs in one step** | SEO audit with a score and fix list. Content briefs, titles and schema, redirect maps and a monthly client report. Brand sheet from any website. A proposal in your branding, and a launch check that catches go-live disasters. Not tips — finished work. |
 | ✅ | **Checks its own work** | Claude opens the page, takes desktop and mobile screenshots, tests links, SEO, accessibility and speed — and shows the evidence. In Claude Code, after website changes a hook asks Claude once to check them before finishing (or to tell you plainly why it can't). |
 | 🔌 | **Connects to your tools** | Tested setup guides for Figma, Webflow, Framer, WordPress, Shopify, Firecrawl, Search Console, Ahrefs and Semrush, plus a doctor that finds what's missing. |
 
@@ -67,8 +67,13 @@ Say these to Claude after installing:
 | "Make a brand sheet from their website" | Colours with contrast checks, fonts, logo, tone of voice — as a printable page |
 | "Write a proposal for the new website" | Three options, scope, timeline, your branding — then checks the totals add up |
 | "Check the homepage before we launch" | Screenshots, links, SEO, accessibility and speed — with a ✅ / ⚠️ / ❌ verdict and evidence |
+| "Write a content brief for ‘wedding cakes dubai’" | Studies the pages that rank now, then writes the outline, titles, questions to answer and internal links — no invented search volumes |
+| "Fix the titles, meta and schema on our site" | Scans every page, writes new titles, descriptions and JSON-LD, checks them, and gives paste-ready code for your platform |
+| "We are moving to a new site — make the redirects" | Matches old URLs to new ones, flags the unsure ones, exports for Netlify, Vercel, Shopify, WordPress and more, then verifies them after launch |
+| "Make October’s SEO report for Crumb & Co" | Compares the month with the one before (Search Console, health score, fixed issues) and writes a branded, printable report |
+| "We go live on Friday — are we ready?" | Launch pipeline: catches noindex, robots.txt blocks, staging URLs, missing redirects and analytics, then a go / no-go and client sign-off |
 
-See a [real audit of a live website](examples/real-audit-junaid-aj.md) and demo output in [examples/](examples/).
+See a [real audit of a live website](examples/real-audit-junaid-aj.md), a [real launch check](examples/real-launch-junaid-aj.md) of the same site, and demo output in [examples/](examples/).
 
 ---
 
@@ -79,9 +84,13 @@ Install everything with `power-up-kit`, or only the packs you need.
 | Pack | Skills | For |
 |---|---|---|
 | **powerup-core** (always installed) | `client-new` · `client-switch` · `client-note` · `agency-profile` · `doctor` · `proof-check` + safety hooks | Everyone |
-| **powerup-seo** | `seo-audit` | SEO teams, agencies |
-| **powerup-design** | `brand-sheet` | Designers |
-| **powerup-agency** | `proposal` | Agency owners, freelancers, project managers |
+| **powerup-seo** | `seo-audit` · `content-brief` · `meta-schema` · `redirect-map` · `seo-report` | SEO teams, agencies, developers |
+| **powerup-design** | `content-brief` | Studies the pages that rank for a keyword and writes a brief: intent, outline, length, questions, internal links, angle | ✅ | ✅* |
+| `meta-schema` | Titles, meta descriptions, Open Graph and JSON-LD — written, checked (length, pixel width, required schema fields) and ready to paste | ✅ | ✅* |
+| `redirect-map` | Old → new URL matching for migrations, checks for chains and loops, exports for 10 platforms, verifies after launch | ✅ | ✅* |
+| `seo-report` | Monthly client report: Search Console and health-score changes, fixed and new issues, work done, next steps — branded HTML | ✅ | ✅ |
+| `brand-sheet` | Designers |
+| **powerup-agency** | `proposal` · `launch` | Agency owners, freelancers, project managers |
 
 | Skill | What it does | Claude Code | Claude app |
 |---|---|:-:|:-:|
@@ -94,6 +103,7 @@ Install everything with `power-up-kit`, or only the packs you need.
 | `seo-audit` | Polite crawl, 30 site and page checks, PageSpeed, score /100, prioritised report; uses Search Console / Ahrefs / Semrush if connected | ✅ | ✅* |
 | `brand-sheet` | Brand colours (with roles and WCAG contrast), fonts, logo and voice → printable sheet | ✅ | ✅* |
 | `proposal` | Proposal with 3 options in your branding; checks totals, gaps and expiry; never invents prices | ✅ | ✅ |
+| `launch` | Go-live pipeline: pre-launch checks on staging, go / no-go, client sign-off, then post-launch checks on the live site | ✅ | ✅* |
 
 \* In the Claude app, the code sandbox may not reach websites directly; the skill then reads pages with Claude's web tools and audits a sample.
 
@@ -111,7 +121,7 @@ Install everything with `power-up-kit`, or only the packs you need.
     ├── profile.md   brand.md   voice.md   seo.md   decisions.md
 ```
 
-**Scripts do the measuring, Claude does the thinking.** Each skill ships small zero-dependency Node.js scripts (crawler, page checker, brand extractor, proposal checker). They return compact facts, so Claude spends less of your usage reading raw pages and never has to guess a number.
+**Scripts do the measuring, Claude does the thinking.** Each skill ships small zero-dependency Node.js scripts (crawler, page checker, schema checker, redirect matcher, launch checker, brand extractor, proposal checker). They return compact facts, so Claude spends less of your usage reading raw pages and never has to guess a number.
 
 **Hooks (Claude Code only)** load the active client at the start of each session, guard against reading secret files (best effort), and ask Claude to check web changes before it says they work. All can be switched off. [More →](docs/hooks.md)
 
@@ -138,8 +148,8 @@ Install everything with `power-up-kit`, or only the packs you need.
 
 | Version | Adds |
 |---|---|
-| **0.1** (now) | Core (memory, doctor, proof-check, hooks) · SEO audit · brand sheet · proposal |
-| 0.2 | Content briefs, meta & schema writer, redirect maps, monthly SEO report, `launch` pipeline |
+| 0.1 | Core (memory, doctor, proof-check, hooks) · SEO audit · brand sheet · proposal |
+| **0.2** (now) | Content briefs · meta & schema writer · redirect maps · monthly SEO report · `launch` pipeline |
 | 0.3 | Design QA against Figma, design tokens, Figma → Webflow/Framer, site migration |
 | 1.0 | Specialist team (SEO, accessibility, design QA, copy agents working in parallel), all pipelines, guides in more languages |
 

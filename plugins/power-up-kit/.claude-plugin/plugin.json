@@ -1,8 +1,8 @@
 {
   "name": "power-up-kit",
   "displayName": "Power-Up Kit",
-  "description": "Everything in Power-Up Kit in one install: client memory, proof checks, SEO audits, brand sheets and proposals for web designers, developers, SEO teams and agencies.",
-  "version": "0.1.1",
+  "description": "Everything in Power-Up Kit in one install: client memory, proof checks, SEO audits, content briefs, meta and schema, redirect maps, monthly SEO reports, brand sheets, proposals and launch checks for web designers, developers, SEO teams and agencies.",
+  "version": "0.2.0",
   "author": {
     "name": "junaid-creo",
     "url": "https://github.com/junaid-creo"
