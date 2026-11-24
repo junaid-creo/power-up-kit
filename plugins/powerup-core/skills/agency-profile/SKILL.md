@@ -1,6 +1,6 @@
 ---
 name: agency-profile
-description: Save your own agency's or freelance business details — name, logo, colours, services, prices, case studies and standard terms — so proposals and client reports come out with your branding and real numbers. Use when the user sets up the kit, says "set up my agency", "our rates are…", "add a case study", or before the first proposal or report if no agency profile exists.
+description: Save your agency or freelance details — name, logo, colours, services, prices, case studies, terms — for branded proposals and reports. Use for "set up my agency", "our rates are…", "add a case study", or before a first proposal if none exists.
 license: MIT
 compatibility: Works in Claude Code (saves .powerup/agency.md) and the Claude app (gives a file to add to a Claude Project).
 metadata:

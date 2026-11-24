@@ -1,6 +1,6 @@
 ---
 name: proof-check
-description: Check web work with real evidence before calling it done — opens the page, takes desktop and mobile screenshots, and tests links, SEO basics, accessibility and speed. Use after building or changing a website, landing page, theme or component, before launch, or whenever the user asks "does it work?", "check this page", "QA this", or "is it ready?".
+description: Check web work with real evidence before calling it done — desktop and mobile screenshots, links, SEO basics, accessibility, speed. Use after building or changing a page, site, theme or component, or for "does it work?", "QA this", "is it ready?".
 license: MIT
 compatibility: Works in Claude Code and the Claude app. Scripts need Node.js 18+. Screenshots need a browser tool (Playwright MCP, Claude in Chrome or the Claude desktop browser).
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/page-check.mjs" *), Bash(node "${CLAUDE_SKILL_DIR}/scripts/pagespeed.mjs" *)

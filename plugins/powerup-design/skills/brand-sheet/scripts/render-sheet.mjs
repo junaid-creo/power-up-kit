@@ -145,4 +145,4 @@ ${gf}
 const out = args.out || 'brand-sheet.html';
 mkdirSync(dirname(out), { recursive: true });
 writeFileSync(out, htmlOut);
-process.stdout.write(`${JSON.stringify({ written: out, colors: colors.length, contrastPairs: pairs.length, failingPairs: pairs.filter((p) => p.rating === 'fail').map((p) => p.label) }, null, 2)}\n`);
+process.stdout.write(`${JSON.stringify({ written: out, colors: colors.length, contrastPairs: pairs.length, failingPairs: pairs.filter((p) => p.rating === 'fail').map((p) => p.label) })}\n`);

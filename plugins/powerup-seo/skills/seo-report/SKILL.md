@@ -1,6 +1,6 @@
 ---
 name: seo-report
-description: Write a monthly (or any period) client SEO report with real numbers only — Search Console clicks, impressions, CTR and position against the previous period, health score change, fixed and new issues, top movers, work done and next month's plan — as a branded printable page. Use for a monthly SEO report, client SEO report, results report, "how did SEO do this month?" or "what changed since last month?".
+description: Monthly (or any period) client SEO report with real numbers only — Search Console changes vs last period, health score, fixed and new issues, work done, next steps — as a branded page. Use for "monthly SEO report" or "how did SEO do this month?".
 license: MIT
 compatibility: Works in Claude Code and the Claude app. Scripts need Node.js 18+. PageSpeed needs internet access. Search Console, Ahrefs and Semrush are optional connectors; Search Console CSV exports work too.
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/compare-crawls.mjs" *), Bash(node "${CLAUDE_SKILL_DIR}/scripts/search-diff.mjs" *), Bash(node "${CLAUDE_SKILL_DIR}/scripts/render-report.mjs" *), Bash(node "${CLAUDE_SKILL_DIR}/scripts/pagespeed.mjs" *)

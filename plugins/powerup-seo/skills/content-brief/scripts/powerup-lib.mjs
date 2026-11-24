@@ -877,8 +877,10 @@ export async function pageSpeed(url, { strategy = 'mobile', apiKey = process.env
 // Output helpers
 // ---------------------------------------------------------------------------
 
+// Compact JSON: Claude reads every printed character, and indentation adds
+// about a third more tokens for the same data. Files on disk stay pretty.
 export function printJson(obj) {
-  process.stdout.write(`${JSON.stringify(obj, null, 2)}\n`);
+  process.stdout.write(`${JSON.stringify(obj)}\n`);
 }
 
 export function fail(message, code = 1) {

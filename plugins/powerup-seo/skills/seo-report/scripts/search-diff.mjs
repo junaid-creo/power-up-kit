@@ -519,21 +519,8 @@ const outPath = opt('out') || `.powerup/reports/search-diff-${kind}-${isoDate()}
 mkdirSync(dirname(outPath), { recursive: true });
 writeFileSync(outPath, `${JSON.stringify(full, null, 2)}\n`);
 
-// Same JSON as printJson, but each row of a list goes on one line to keep the summary short.
-function compactJson(v, ind = '') {
-  const inner = `${ind}  `;
-  const flatObject = (x) => x && typeof x === 'object' && !Array.isArray(x) && Object.values(x).every((y) => y === null || typeof y !== 'object');
-  if (Array.isArray(v)) {
-    if (!v.length) return '[]';
-    return `[\n${v.map((x) => inner + (flatObject(x) ? JSON.stringify(x) : compactJson(x, inner))).join(',\n')}\n${ind}]`;
-  }
-  if (v && typeof v === 'object') {
-    const entries = Object.entries(v).filter(([, x]) => x !== undefined);
-    if (!entries.length) return '{}';
-    return `{\n${entries.map(([k, x]) => `${inner}${JSON.stringify(k)}: ${compactJson(x, inner)}`).join(',\n')}\n${ind}}`;
-  }
-  return JSON.stringify(v);
-}
+// Same compact JSON as printJson: Claude reads every printed character.
+const compactJson = (v) => JSON.stringify(v);
 
 const { all: _all, ...itemSummary } = items || {};
 process.stdout.write(`${compactJson({

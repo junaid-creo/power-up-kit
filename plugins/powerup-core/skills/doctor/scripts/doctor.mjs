@@ -169,4 +169,4 @@ process.stdout.write(`${JSON.stringify({
   projectDir,
   summary,
   checks,
-}, null, 2)}\n`);
+})}\n`);

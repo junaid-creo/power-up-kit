@@ -1,6 +1,6 @@
 ---
 name: client-switch
-description: Switch which client Claude is working for, or list all saved clients, then load that client's brand, tone of voice, SEO goals and past decisions. Use when the user says "switch to Acme", "let's work on another client", "which clients do we have?", or starts talking about a different client than the active one.
+description: Switch the active client or list saved clients, then load their brand, voice, SEO goals and decisions. Use for "switch to Acme", "which clients do we have?", or when the user starts talking about another client.
 license: MIT
 compatibility: Works in Claude Code (reads .powerup/ in the project). In the Claude app, each client lives in its own Claude Project instead.
 metadata:

@@ -1,6 +1,6 @@
 ---
 name: seo-audit
-description: Run a full SEO audit of a website — crawls the pages, checks technical and on-page SEO, measures speed with Google PageSpeed, scores the site out of 100 and writes a prioritised fix list with evidence. Uses Google Search Console, Ahrefs or Semrush data when those connectors are available. Use when the user asks for an SEO audit, site audit, SEO check, "why don't we rank?", a pre-launch or post-migration SEO check, or a one-off audit report for a client. For a monthly or recurring client report, use seo-report.
+description: One-off SEO audit of a website — crawl, technical and on-page checks, PageSpeed, score out of 100 and a prioritised fix list with evidence. Use for an SEO or site audit, "why don't we rank?", or a pre-launch / post-migration check. Monthly reports use seo-report.
 license: MIT
 compatibility: Works in Claude Code and the Claude app. Scripts need Node.js 18+ and internet access to the website. Search Console, Ahrefs and Semrush are optional connectors.
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/seo-crawl.mjs" *), Bash(node "${CLAUDE_SKILL_DIR}/scripts/pagespeed.mjs" *)
@@ -25,7 +25,7 @@ Produce an audit a client can act on: real numbers, real URLs, fixes in priority
 node "${CLAUDE_SKILL_DIR}/scripts/seo-crawl.mjs" <url> --max 50 --csv .powerup/reports/<domain>-pages-<date>.csv
 ```
 
-It respects robots.txt, crawls slowly, and prints a short summary (score, issue counts, path to the full JSON report). Read the full JSON only for the issues you are writing up — it can be large.
+It respects robots.txt, crawls slowly, and prints a compact summary: score, and for each issue its title, count and up to 5 example URLs — enough to write the report. Don't open the full JSON report unless you need a detail the summary lacks; then read only that issue or page (e.g. with `node -e` or `jq`), never the whole file.
 
 In the Claude app the sandbox often can't reach websites. If the script fails with a network error there, use your web fetch tool to read the homepage and 5–10 key pages, and apply the checks in [reference/checklist.md](reference/checklist.md) by hand. Say in the report that it was a sampled audit.
 

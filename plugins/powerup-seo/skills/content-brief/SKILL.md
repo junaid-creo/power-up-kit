@@ -1,6 +1,6 @@
 ---
 name: content-brief
-description: Write an SEO content brief for a blog post, service page, location page or page refresh. Compares the pages that rank now (length, headings, questions, schema), finds the angle they miss, and gives titles, meta, an outline and internal links in the client's voice. Never invents search volume. Use when the user asks for a content brief, SEO or blog brief, article outline, "what should this page cover?" or "help us rank for this keyword".
+description: Write an SEO content brief for a blog post, service, location or refreshed page by comparing the pages that rank now — titles, meta, outline, internal links. Never invents search volume. Use for a content brief, article outline, or "help us rank for this keyword".
 license: MIT
 compatibility: Works in Claude Code and the Claude app. The script needs Node.js 18+ and internet access to the pages, or saved page files. Ahrefs, Semrush, Search Console and Firecrawl are optional connectors.
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/compare-pages.mjs" *)

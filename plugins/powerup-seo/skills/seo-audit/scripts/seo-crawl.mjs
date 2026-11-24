@@ -347,6 +347,9 @@ if (args.csv) {
   writeFileSync(args.csv, `${rows.join('\n')}\n`);
 }
 
+// The summary carries everything the audit report needs (title, counts and up
+// to 5 example URLs per issue), so Claude rarely has to open the full report.
+// Compact JSON: same data, about a third fewer tokens than pretty-printed.
 process.stdout.write(`${JSON.stringify({
   score,
   startUrl,
@@ -360,10 +363,10 @@ process.stdout.write(`${JSON.stringify({
     httpsEnforced: site.httpsEnforced,
     soft404: site.soft404,
   },
-  issues: issues.map((i) => ({ id: i.id, severity: i.severity, count: i.count, ofTotal: i.ofTotal, deduction: i.deduction })),
+  issues: issues.map((i) => ({ id: i.id, severity: i.severity, title: i.title, count: i.count, ofTotal: i.ofTotal, deduction: i.deduction, examples: i.examples.slice(0, 5) })),
   fullReport: outPath,
   ...(args.csv ? { csv: args.csv } : {}),
-}, null, 2)}\n`);
+})}\n`);
 
 function groupBy(list, keyFn) {
   const m = new Map();

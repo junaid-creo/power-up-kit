@@ -1,5 +1,18 @@
 # Changelog
 
+## Unreleased
+
+Fewer tokens, same data.
+
+### Changed
+- **Shorter skill descriptions:** 39% fewer characters (5,599 → 3,423), about 540 fewer tokens in every session. Trigger phrases and the "never invents…" promises are kept.
+- **Compact script output:** every script prints one-line JSON instead of indented JSON, about a third fewer tokens for the same data. Files written to disk are unchanged.
+- **seo-crawl summary is enough for the audit report:** each issue now has its title and up to 5 example URLs, so Claude no longer needs to open the full crawl report (several thousand tokens on a 50-page site).
+- **Launch-day and redirect-verify steps load only when needed:** they moved to `launch/reference/launch-day.md` and `redirect-map/reference/verify.md`, so pre-launch and mapping runs read less.
+
+### Added
+- `npm run measure`: prints how many tokens each script's output costs on the test fixtures, to compare before and after a change.
+
 ## 0.2.1 — 2026-11-23
 
 Installing is now one question: paste the repository link into Claude, say who you are, done.

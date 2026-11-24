@@ -732,4 +732,4 @@ process.stdout.write(`${JSON.stringify({
   } : {}),
   note: 'Structure only. Read the top 2–3 pages yourself for quality, angle and gaps.',
   fullData: outPath,
-}, null, 2)}\n`);
+})}\n`);

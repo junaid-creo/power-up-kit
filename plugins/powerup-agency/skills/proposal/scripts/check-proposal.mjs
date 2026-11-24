@@ -115,5 +115,5 @@ const out = {
   warnings,
   pricingTables: tableResults,
 };
-process.stdout.write(`${JSON.stringify(out, null, 2)}\n`);
+process.stdout.write(`${JSON.stringify(out)}\n`);
 process.exitCode = mustFix.length ? 1 : 0;

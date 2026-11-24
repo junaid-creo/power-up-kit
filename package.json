@@ -15,6 +15,7 @@
     "sync": "node scripts/sync-shared.mjs",
     "build": "node scripts/build-zips.mjs",
     "icons": "node scripts/make-icons.mjs",
+    "measure": "node scripts/measure-output.mjs",
     "check": "node scripts/sync-shared.mjs --check && node scripts/validate.mjs && node --test \"tests/**/*.test.mjs\""
   }
 }

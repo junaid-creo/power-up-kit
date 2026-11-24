@@ -1,6 +1,6 @@
 ---
 name: launch
-description: Run a website go-live pipeline for new sites, redesigns and relaunches — check staging, fix blockers, get client sign-off, then check the live site on launch day, after a week and after a month. Catches noindex, robots.txt blocks, staging URLs, missing redirects and analytics, soft 404s and placeholder text, with a go / no-go verdict and evidence. Use for "we go live tomorrow", "are we ready to launch?", "launch checklist", "go-live check" or "post-launch check".
+description: Website go-live checks for new sites, redesigns and relaunches — staging, launch day, +1 week, +1 month. Catches noindex, robots.txt blocks, staging URLs, missing redirects or analytics and placeholder text, with a go / no-go verdict. Use for "we go live tomorrow", "are we ready to launch?", "launch checklist" or "post-launch check".
 license: MIT
 compatibility: Works in Claude Code and the Claude app. The script needs Node.js 18+ and internet access to the site (real HTTP, not local files). Uses the proof-check skill from powerup-core. The SEO pack skills meta-schema, redirect-map and seo-audit are optional.
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/launch-check.mjs" *)
@@ -63,33 +63,18 @@ Write the report with [templates/launch-report.md](templates/launch-report.md):
 - Warnings the client can accept go in the sign-off as **Accepted risks** — only after the user says so in plain words.
 - The **sign-off** block lists what the client approves (content, design, forms, redirects, launch time, rollback plan). Leave the name and date for the client — never fill in an approval yourself.
 
-## 3. Launch day
+## 3. Launch day and post-launch check
 
-Follow the platform's steps in the checklist ("Platform go-live steps"). The usual order:
-1. Day before: lower the DNS TTL, take a backup, freeze content changes.
-2. Connect the domain / publish to the custom domain.
-3. Allow indexing on the live domain (remove noindex, open robots.txt) — keep the staging address hidden.
-4. Turn on redirects, force https, choose www or non-www.
-5. Check analytics and the consent banner on the live site.
-
-Use the platform's own menu words. If a menu has moved, check the platform's official help before guessing.
-
-## 4. Post-launch check on live (same day)
+On launch day, read [reference/launch-day.md](reference/launch-day.md) and follow it: platform go-live steps, live form tests, Search Console, and the week-1 and month-1 follow-ups. The live check (noindex, robots.txt blocks and staging URLs are now **fails**):
 
 ```bash
 node "${CLAUDE_SKILL_DIR}/scripts/launch-check.mjs" https://<live-domain>/ --phase post --expect-host <live-host> --staging <staging-host> --redirects .powerup/redirects/<map>.csv
 ```
 
-- Now noindex, robots.txt blocks and staging URLs are **fails** — fix them right away, then run again.
-- Run **proof-check** on the live homepage and key pages, including PageSpeed (mobile).
-- Submit each form on the live site with test data; check the email arrives.
-- **Search Console:** submit the sitemap (Sitemaps report) and request indexing of the homepage. For a domain change, use the Change of Address tool (it needs 301 redirects and both properties verified). If a Search Console connector is available, use it; otherwise give the user the steps.
-
-## 5. Save and follow up
+## 4. Save and follow up
 
 - Save the report as `.powerup/reports/launch-<domain>-<YYYY-MM-DD>.md` (in the Claude app, as a downloadable file). The script's JSON sits next to it.
 - If a client is active, add to `decisions.md`: `<date> — Launched on <date> (<live domain>). Follow-ups: week 1 <date + 7 days>, month 1 <date + 30 days>.` Add a line for each accepted risk. Update `profile.md` (website, platform, analytics) if they changed.
-- **Week 1:** Search Console page indexing and 404s, analytics data flowing, form entries arriving, run the post check again.
-- **Month 1:** an SEO audit compared with the pre-launch crawl.
+- Remind the user of the week-1 and month-1 follow-ups in [reference/launch-day.md](reference/launch-day.md).
 
 Offer next steps: the **seo-audit** skill in a month (compare with the pre-launch audit), an **seo-report** for the client, **redirect-map** if 404s appear in Search Console, **proof-check** after each fix, and **client-note** to save launch decisions.

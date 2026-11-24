@@ -1,6 +1,6 @@
 ---
 name: doctor
-description: Check that Power-Up Kit and its connectors are set up correctly, and explain how to fix anything missing — Node.js, Claude Code version, browser tool, Firecrawl, Figma, Webflow, Framer, WordPress, Shopify, Search Console, Ahrefs, Semrush, client memory and secret safety. Use right after installing the kit, when a skill or connector doesn't work, or when the user asks "is everything set up?" or "what can you connect to?".
+description: Check Power-Up Kit setup and connectors (browser, Firecrawl, Figma, site builders, Search Console, Ahrefs, Semrush) and give exact fixes. Use after installing, when a skill or connector fails, or for "is everything set up?".
 license: MIT
 compatibility: Works in Claude Code and the Claude app. The setup script needs Node.js 18+.
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/doctor.mjs" *), Bash(node "${CLAUDE_SKILL_DIR}/scripts/doctor.mjs")

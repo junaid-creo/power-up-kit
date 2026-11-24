@@ -1,6 +1,6 @@
 ---
 name: proposal
-description: Write a client proposal — the client's problem, goals, approach, scope (included and not included), timeline, three pricing options, case studies and next steps — in your agency's branding, then check it for gaps and wrong totals and make a printable PDF-ready page. Never invents prices. Use when the user asks for a proposal, quote, estimate, statement of work, pitch for a client, or turns discovery-call notes into an offer.
+description: Write and check a branded client proposal — problem, scope, timeline, three pricing options, case studies — as a printable page. Never invents prices. Use for a proposal, quote, estimate, statement of work, pitch, or turning call notes into an offer.
 license: MIT
 compatibility: Works in Claude Code and the Claude app. Scripts need Node.js 18+.
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/check-proposal.mjs" *), Bash(node "${CLAUDE_SKILL_DIR}/scripts/render-proposal.mjs" *)

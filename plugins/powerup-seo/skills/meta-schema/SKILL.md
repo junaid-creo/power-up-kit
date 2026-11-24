@@ -1,6 +1,6 @@
 ---
 name: meta-schema
-description: Write, fix and check page titles, meta descriptions, Open Graph tags and JSON-LD schema for one page or a whole site, then give paste-ready code or steps for WordPress, Webflow, Framer, Shopify, Next.js or HTML. Checks length, pixel width, duplicates and required schema fields, and never invents reviews or prices. Use for meta titles and descriptions, title tags, social previews, schema markup, structured data, rich results, "fix our titles" or "add schema".
+description: Write, fix and check page titles, meta descriptions, Open Graph and JSON-LD schema, with paste-ready code for WordPress, Webflow, Framer, Shopify, Next.js or HTML. Never invents reviews or prices. Use for title tags, meta descriptions, social previews, schema or rich results.
 license: MIT
 compatibility: Works in Claude Code and the Claude app. Scripts need Node.js 18+; scanning live pages needs internet access to the website (saved HTML files work too). Webflow and Framer connectors are optional.
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/meta-schema.mjs" *)

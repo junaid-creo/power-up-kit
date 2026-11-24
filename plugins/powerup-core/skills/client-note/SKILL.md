@@ -1,6 +1,6 @@
 ---
 name: client-note
-description: Save a decision, preference or fact about the active client so Claude remembers it in future chats. Use when the user says "remember that…", "note for the client…", "the client decided…", "from now on…", or when a client gives clear feedback such as "they hate stock photos" or "the new phone number is…".
+description: Save a decision, preference or fact about the active client. Use for "remember that…", "the client decided…", "from now on…", or clear client feedback like "they hate stock photos".
 license: MIT
 compatibility: Works in Claude Code (edits .powerup/ in the project). In the Claude app, gives an updated file to replace in the client's Claude Project.
 metadata:

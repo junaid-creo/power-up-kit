@@ -1,6 +1,6 @@
 ---
 name: redirect-map
-description: Build, check and verify a 301 redirect map so a redesign, migration, platform move or domain change keeps its Google rankings. Matches old URLs to new ones, flags pages with no match instead of sending them to the homepage, finds chains and loops, and exports for Netlify, Vercel, Apache, nginx, Cloudflare, Shopify, WordPress, Webflow and more. Use for "redirect map", "301 redirects", "we're changing URLs", "site migration" or "domain change".
+description: Build, check and export a 301 redirect map so a redesign, migration or domain change keeps rankings — no lazy redirects to the homepage, no chains or loops. Use for "redirect map", "301 redirects", "we are changing URLs" or "site migration".
 license: MIT
 compatibility: Works in Claude Code and the Claude app. The script needs Node.js 18+. It reads sitemaps and URL lists from files, or from the web when internet access is available. Search Console, Ahrefs and Semrush connectors are optional.
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/redirect-map.mjs" *)
@@ -95,7 +95,7 @@ node "${CLAUDE_SKILL_DIR}/scripts/redirect-map.mjs" export <map.csv> --format <n
 node "${CLAUDE_SKILL_DIR}/scripts/redirect-map.mjs" verify <map.csv> --base https://<live-site> --concurrency 3
 ```
 
-It requests every old URL (relative paths are joined to `--base`) and checks: the first hop is 301/308 (302/307 → warn), it ends at the expected page (normalised), at most one hop (2 → warn, more → fail), the final page answers 200, and 410 rows answer 410 or 404. Fix the `problems` list, then run it again. For a full go-live check, hand over to the **launch** skill, which runs this too. Without network access, check 10–20 of the most valuable URLs by hand with your web tool and say it was a sample.
+What it checks and how to act on it: [reference/verify.md](reference/verify.md).
 
 ## 8. Remember it
 

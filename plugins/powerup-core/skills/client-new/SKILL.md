@@ -1,6 +1,6 @@
 ---
 name: client-new
-description: Set up memory for a new client so Claude remembers their brand, tone of voice, SEO goals and past decisions in every future chat. Use when the user starts work for a new client or project, says "new client", "onboard Acme", "remember this client", or shares a client brief and wants it saved.
+description: Set up memory for a new client — brand, voice, SEO goals, decisions — so Claude remembers them in future chats. Use for "new client", "onboard Acme", "remember this client", or a client brief to save.
 license: MIT
 compatibility: Works in Claude Code (saves files in the project) and the Claude app (gives files to add to a Claude Project).
 metadata:

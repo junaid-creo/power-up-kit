@@ -1,6 +1,6 @@
 ---
 name: brand-sheet
-description: Build a brand sheet from a website, brand guide, Figma file or brief — colours with roles and WCAG contrast checks, fonts, logo, and tone of voice — as a printable page, and save it to the client's memory. Use when the user asks for a brand sheet, style guide, brand colours or fonts of a site, "what's their branding?", or when starting design work for a client with no brand.md yet.
+description: Build a brand sheet — colours with roles and contrast checks, fonts, logo, tone of voice — from a website, guide, Figma file or brief, and save it to client memory. Use for a brand sheet, style guide, "what are their brand colours / fonts?".
 license: MIT
 compatibility: Works in Claude Code and the Claude app. Scripts need Node.js 18+ (and internet access for websites). Figma is optional.
 allowed-tools: Bash(node "${CLAUDE_SKILL_DIR}/scripts/extract-brand.mjs" *), Bash(node "${CLAUDE_SKILL_DIR}/scripts/render-sheet.mjs" *)

@@ -853,7 +853,7 @@ process.stdout.write(`${JSON.stringify({
   pagesChecked: N,
   notChecked,
   fullReport: outPath,
-}, null, 2)}\n`);
+})}\n`);
 
 // ---------------------------------------------------------------------------
 // Helpers

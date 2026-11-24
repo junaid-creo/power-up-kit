@@ -133,4 +133,4 @@ const out = opt('out', input.replace(/\.md$/i, '') + '.html');
 mkdirSync(dirname(out), { recursive: true });
 writeFileSync(out, page);
 const placeholders = (md.match(/\[(PRICE|DATE|AMOUNT|RATE)[^\]]*\]/g) || []).length;
-process.stdout.write(`${JSON.stringify({ written: out, title, highlightedPlaceholders: placeholders }, null, 2)}\n`);
+process.stdout.write(`${JSON.stringify({ written: out, title, highlightedPlaceholders: placeholders })}\n`);
